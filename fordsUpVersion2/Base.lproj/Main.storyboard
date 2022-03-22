@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="1071.2" y="71.514242878560722"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="pxM-3u-eBE">
             <objects>
-                <viewController id="1Q0-2c-wCX" sceneMemberID="viewController">
+                <viewController id="1Q0-2c-wCX" customClass="SecondViewController" customModule="fordsUpVersion2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bi0-SA-6Vs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,6 +156,11 @@
                         <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="dEj-Gv-gss"/>
+                    <connections>
+                        <outlet property="gameLabel" destination="y16-yr-ECi" id="3vv-pT-W2C"/>
+                        <outlet property="playAgain" destination="MPT-sg-MzQ" id="Q6R-8C-54h"/>
+                        <outlet property="timerLabel" destination="IBE-c5-5o2" id="ymS-uH-MET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEl-VZ-bCw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
