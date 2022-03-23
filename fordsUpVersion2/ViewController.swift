@@ -9,15 +9,21 @@ import UIKit
 import SwiftSoup
 
 
+
+var chathum: [String] = []
+var chestnutwald: [String] = []
+var coopertown: [String] = []
+var lynnewood: [String] = []
+var manoa: [String] = []
+var ms: [String] = []
+var hs: [String] = []
+var currentCat: [String] = []
+
+
+
 class ViewController: UIViewController
 {
-    var chathum: [String] = []
-    var chestnutwald: [String] = []
-    var coopertown: [String] = []
-    var lynnewood: [String] = []
-    var manoa: [String] = []
-    var ms: [String] = []
-    var hs: [String] = []
+   
     override func viewDidLoad()
     {
         super.viewDidLoad()
