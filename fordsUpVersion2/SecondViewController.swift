@@ -60,6 +60,8 @@ class SecondViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+      print(chathum)
+        /*
         let frame = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
         frame.layer.borderWidth = 3
         frame.layer.borderColor = UIColor.white.cgColor
@@ -78,13 +80,16 @@ class SecondViewController: UIViewController
         frame3.layer.borderColor = UIColor.white.cgColor
         frame3.layer.masksToBounds = true
         view.addSubview(frame3) ///////
-
+*/
+       
         
         
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         timerLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-        
+       
+        playAgain.bringSubviewToFront(self.view)
+       
         playAgain.isHidden = true
         print("start")
        
@@ -222,11 +227,21 @@ class SecondViewController: UIViewController
     }
     
     
-    @IBAction func playAgainTap(_ sender: UIButton)
+    
+    @IBAction func test(_ sender: UIButton)
     {
-         self.navigationController?.popToRootViewController(animated: true)
+    print("test")
     }
     
+  
     
-   
+
+    
+
 }
+
+/*
+ self.navigationController?.popToRootViewController(animated: true)
+
+print("hit")
+ */
