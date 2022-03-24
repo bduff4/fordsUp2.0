@@ -102,11 +102,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzD-ce-9vy">
+                                <rect key="frame" x="166" y="84" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fords Up" id="tor-pf-fuY"/>
+                    <connections>
+                        <outlet property="internet" destination="QzD-ce-9vy" id="Bcp-IB-bE5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,6 +200,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ekj-la-Ass"/>
         <segue reference="fTg-Yz-3WO"/>
     </inferredMetricsTieBreakers>
 </document>

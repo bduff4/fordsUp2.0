@@ -18,33 +18,58 @@ var manoa: [String] = []
 var ms: [String] = []
 var hs: [String] = []
 var currentCat: [String] = []
+var internetCheck: Timer = Timer()
+var connected = false
 
 
 
 class ViewController: UIViewController
 {
-   
+    @IBOutlet weak var internet: UILabel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        
     }
 
     override func viewDidAppear(_ animated: Bool)
     {
         parse(urlString: "https://www.haverford.k12.pa.us/home-chatham-park/directory", toArray: "chathum")
         
-        parse(urlString: "https://www.haverford.k12.pa.us/home-chestnutwold/directory", toArray: "chestnutwold"); print("chestnutwold words are \(chestnutwald)")
-      
-        parse(urlString: "https://www.haverford.k12.pa.us/home-coopertown/directory",  toArray: "coopertown"); print("coopertown words are \(coopertown)")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-chestnutwold/directory", toArray: "chestnutwold")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-coopertown/directory",  toArray: "coopertown")
      
-        parse(urlString: "https://www.haverford.k12.pa.us/home-lynnewood/directory",  toArray: "lynnewood"); print("lynnewood words are \(lynnewood)")
-     
-        parse(urlString: "https://www.haverford.k12.pa.us/home-manoa/directory", toArray: "manoa"); print("manoa words are \(manoa)")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-lynnewood/directory",  toArray: "lynnewood")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-manoa/directory", toArray: "manoa")
         
-        parse(urlString: "https://www.haverford.k12.pa.us/home-middle-school/directory",  toArray: "ms"); print("ms words are \(ms)")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-middle-school/directory",  toArray: "ms")
         
-        parse(urlString: "https://www.haverford.k12.pa.us/home-high-school/directory",  toArray: "hs"); print("hs words are \(hs)")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-high-school/directory",  toArray: "hs")
+        
+        internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func waitForInternet()
+    {
+        
+        if lynnewood.count > 5
+        {
+            connected = true
+            internetCheck.invalidate()
+            print(lynnewood)
+            internet.text = "connected"
+        }
+    
+        else
+        {
+            connected = true
+            internet.text = "not connected"
+        }
+    
     }
     
     func parse(urlString: String, toArray: String)

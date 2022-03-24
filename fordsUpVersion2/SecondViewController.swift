@@ -103,6 +103,26 @@ class SecondViewController: UIViewController
         
         currentCat.append(contentsOf: lynnewood) // lynnewood for debugging, just put in whatever category it is
         
+//        currentCat[0].replacingOccurrences(of: "\\", with: "")
+    
+        
+        for j in 0..<currentCat.count
+        {
+            currentCat[j] = currentCat[j].components(separatedBy: " ").last!
+            
+            
+            
+            
+            if currentCat[j].contains("\'") || currentCat[j].contains("\\'")
+            {
+          currentCat[j] = currentCat[j].replacingOccurrences(of: "\\'", with: "'", options: .literal, range: nil)
+            
+           currentCat[j] = currentCat[j].replacingOccurrences(of: "\'", with: "'", options: .literal, range: nil) // just in case
+            }
+            
+            
+        }
+        
         
         
         
@@ -227,7 +247,13 @@ class SecondViewController: UIViewController
                 checkDone = true
                 timer2?.invalidate() //stops the check if phone is in correct position
                 countdownTimer() //timer
-                self.gameLabel.text = currentCat[i]
+               print(i)
+               print(currentCat)
+                
+               self.gameLabel.text = currentCat[i]
+                
+                
+                
                 
                 
                 
@@ -267,3 +293,4 @@ class SecondViewController: UIViewController
 
 print("hit")
  */
+
