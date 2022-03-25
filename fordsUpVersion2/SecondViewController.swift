@@ -24,6 +24,8 @@ class SecondViewController: UIViewController
     var gyroTimer: Timer?
     
     var timerBool = false
+    
+    var i = 0
         
 
     @IBOutlet weak var gameLabel: UILabel!
@@ -36,7 +38,7 @@ class SecondViewController: UIViewController
     
     let motion = CMMotionManager()
         
-    let h = 0
+        let h = 0
         var timer: Timer?
         var timer2: Timer?
         var timer3: Timer?
@@ -47,7 +49,8 @@ class SecondViewController: UIViewController
         var checkDone = false
         var count = 15
         let gameTime = 15
-    
+   
+    /*
     //public schools in haverford township
     var chathamParkTeachers = ["", "", ""]
     var chestnutwoldTeachers = ["", "", ""]
@@ -56,6 +59,7 @@ class SecondViewController: UIViewController
     var manoaTeachers = ["", "", ""]
     var middleSchoolTeachers = ["Collins", "Kim", "Finn"]
     var highSchoolTeachers = ["Smith", "Wells", "Stewart"]
+    */
     
     override func viewDidLoad()
     {
@@ -94,9 +98,42 @@ class SecondViewController: UIViewController
         print("start")
        
         motion.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
-           self.timerLabel?.text = "3"
         
+        self.timerLabel?.text = "3"
+        
+        
+        
+        currentCat.append(contentsOf: lynnewood) // lynnewood for debugging, just put in whatever category it is
+        
+//        currentCat[0].replacingOccurrences(of: "\\", with: "")
     
+        
+        for j in 0..<currentCat.count
+        {
+            currentCat[j] = currentCat[j].components(separatedBy: " ").last!
+            
+            
+            
+            
+            if currentCat[j].contains("\'") || currentCat[j].contains("\\'")
+            {
+          currentCat[j] = currentCat[j].replacingOccurrences(of: "\\'", with: "'", options: .literal, range: nil)
+            
+           currentCat[j] = currentCat[j].replacingOccurrences(of: "\'", with: "'", options: .literal, range: nil) // just in case
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        currentCat.shuffle()
+        
+        
+        //game starts now
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
             self.timerLabel?.text = "2"
@@ -115,6 +152,8 @@ class SecondViewController: UIViewController
             
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
+    
+    
     }
     
 
@@ -144,7 +183,7 @@ class SecondViewController: UIViewController
        
         let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
 
-        let r: String = String(format: "%.2f", roll)
+        let r: String = String(format: "%.2f", roll) //in case of debugging
         
         
         //tilt up
@@ -157,6 +196,7 @@ class SecondViewController: UIViewController
                 wrongPoints += 1
                 vibrate()
                 self.gameLabel.text = "-1"
+                i += 1
                 // this makes stuff happen once when phone is tilted up
             }
             
@@ -169,7 +209,7 @@ class SecondViewController: UIViewController
             view.backgroundColor = UIColor.blue
             correct = 0
             wrong = 0
-            self.gameLabel.text = "" //change text to word name
+            self.gameLabel.text = ("Mr/Ms/Mrs.\n \(currentCat[i])") //change text to word name
         }
         
         
@@ -183,6 +223,7 @@ class SecondViewController: UIViewController
                 vibrate()
                 correctPoints += 1
                 self.gameLabel.text = "+1"
+                i += 1
                 // this makes stuff happen once when phone is tilted down
             }
         }
@@ -207,7 +248,16 @@ class SecondViewController: UIViewController
                 {
                 checkDone = true
                 timer2?.invalidate() //stops the check if phone is in correct position
-                countdownTimer()
+                countdownTimer() //timer
+               print(i)
+               print(currentCat)
+                
+               self.gameLabel.text = ("Mr/Ms/Mrs. \(currentCat[i])")
+                
+                
+                
+                
+                
                 
                 //the method below happens the frame before the game starts
                 self.timerLabel.text = "\(count)"
@@ -245,3 +295,4 @@ class SecondViewController: UIViewController
 
 print("hit")
  */
+
