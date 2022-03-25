@@ -49,7 +49,8 @@ class SecondViewController: UIViewController
         var checkDone = false
         var count = 15
         let gameTime = 15
-    
+   
+    /*
     //public schools in haverford township
     var chathamParkTeachers = ["", "", ""]
     var chestnutwoldTeachers = ["", "", ""]
@@ -58,6 +59,7 @@ class SecondViewController: UIViewController
     var manoaTeachers = ["", "", ""]
     var middleSchoolTeachers = ["Collins", "Kim", "Finn"]
     var highSchoolTeachers = ["Smith", "Wells", "Stewart"]
+    */
     
     override func viewDidLoad()
     {
@@ -207,7 +209,7 @@ class SecondViewController: UIViewController
             view.backgroundColor = UIColor.blue
             correct = 0
             wrong = 0
-            self.gameLabel.text = currentCat[i] //change text to word name
+            self.gameLabel.text = ("Mr/Ms/Mrs.\n \(currentCat[i])") //change text to word name
         }
         
         
@@ -250,7 +252,7 @@ class SecondViewController: UIViewController
                print(i)
                print(currentCat)
                 
-               self.gameLabel.text = currentCat[i]
+               self.gameLabel.text = ("Mr/Ms/Mrs. \(currentCat[i])")
                 
                 
                 

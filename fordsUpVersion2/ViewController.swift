@@ -20,24 +20,37 @@ var hs: [String] = []
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
+var conCount = 0
+var conCount2 = 0
 
 
 
 class ViewController: UIViewController
 {
-    @IBOutlet weak var internet: UILabel!
+  
+   
+    let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(note: this app requires an internet connection)", preferredStyle: .alert)
+    
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
         
+        
+        present(alert, animated: true, completion: nil)
         
         
     }
 
     override func viewDidAppear(_ animated: Bool)
     {
+       
+    
+    
+        
         parse(urlString: "https://www.haverford.k12.pa.us/home-chatham-park/directory", toArray: "chathum")
         
         parse(urlString: "https://www.haverford.k12.pa.us/home-chestnutwold/directory", toArray: "chestnutwold")
@@ -51,23 +64,39 @@ class ViewController: UIViewController
         parse(urlString: "https://www.haverford.k12.pa.us/home-high-school/directory",  toArray: "hs")
         
         internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
+        
     }
     
     @objc func waitForInternet()
     {
-        
-        if lynnewood.count > 5
+       
+      
+        if chathum.count > 5 && chestnutwald.count > 5 && coopertown.count > 5 && lynnewood.count > 5 && manoa.count > 5 && ms.count > 5 && hs.count > 5
         {
             connected = true
-            internetCheck.invalidate()
-            print(lynnewood)
-            internet.text = "connected"
+           
+            
+            alert.dismiss(animated: true, completion: nil)
+           internetCheck.invalidate()
+           // print(lynnewood)
+          
+            
+         
+            
         }
     
         else
         {
             connected = true
-            internet.text = "not connected"
+           
+            
+            conCount2 += 1
+            /*
+            if conCount2 == 0
+            {
+                present(alert, animated: true, completion: nil)
+            }
+            */
         }
     
     }
@@ -153,4 +182,5 @@ class ViewController: UIViewController
  }
      */
     
+
 
