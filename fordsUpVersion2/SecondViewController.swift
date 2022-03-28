@@ -26,7 +26,18 @@ class SecondViewController: UIViewController
     var timerBool = false
     
     var i = 0
-        
+    
+    
+    var name1 = "Mr. Marran"
+    var name2 = "Mr. Walter"
+    var name3 = "Mrs. Grady"
+    var name4 = "Mr. Fidler"
+    var name5 = "Mr. Grabias"
+    var name6 = "Mr. Corsi"
+    var name7 = "Ms. Wingood"
+    var name8 = "Ms. Kim"
+    var name9 = "Mr. Horan"
+    var name10 = "Mr. Berardoni"
 
     @IBOutlet weak var gameLabel: UILabel!
     
@@ -277,12 +288,12 @@ class SecondViewController: UIViewController
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) // change to how many seconds game will last - 1
                     {
                         //this is what happens when the game ends (after 14 seconds)
-                        self.timer?.invalidate()
-                        self.timer3?.invalidate() //countdown
-                        self.view?.backgroundColor = UIColor.blue
-                        self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
-                        self.timerLabel?.text = ""
-                        self.playAgain.isHidden = false
+            self.timer?.invalidate()
+            self.timer3?.invalidate() //countdown
+            self.view?.backgroundColor = UIColor.blue
+            self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
+            self.timerLabel?.text = ""
+            self.playAgain.isHidden = false
                         
                         
                     }

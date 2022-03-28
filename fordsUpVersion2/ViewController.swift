@@ -79,24 +79,16 @@ class ViewController: UIViewController
             alert.dismiss(animated: true, completion: nil)
            internetCheck.invalidate()
            // print(lynnewood)
-          
-            
-         
-            
         }
     
         else
         {
-            connected = true
-           
-            
-            conCount2 += 1
-            /*
-            if conCount2 == 0
+            connected = false
+           conCount += 1
+            if conCount == 1
             {
-                present(alert, animated: true, completion: nil)
+                
             }
-            */
         }
     
     }
