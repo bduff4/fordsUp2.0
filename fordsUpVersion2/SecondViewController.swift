@@ -47,8 +47,8 @@ class SecondViewController: UIViewController
         var wrongPoints = 0
         var correctPoints = 0
         var checkDone = false
-        var count = 15
-        let gameTime = 15
+        var count = 5
+        let gameTime = 5
    
     /*
     //public schools in haverford township
@@ -65,27 +65,40 @@ class SecondViewController: UIViewController
     {
         super.viewDidLoad()
       print(chathum)
-        /*
+        
         let frame = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
         frame.layer.borderWidth = 3
         frame.layer.borderColor = UIColor.white.cgColor
         frame.layer.cornerRadius = 10
         frame.layer.masksToBounds = true
-        view.addSubview(frame) ///////
+        view.addSubview(frame)
+        view.sendSubviewToBack(frame)///////
+       
         
-        let frame2 = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        frame2.layer.borderWidth = 2
-        frame2.layer.borderColor = UIColor.white.cgColor
-        frame2.layer.masksToBounds = true
-        view.addSubview(frame2) ///////
+        
+        
+        
+        
+        
+        
+        
+        /*
+       let frame2 = CGRect(x: 0, y: 0, width: <#T##CoreGraphics.CGFloat#>, height: <#T##CoreGraphics.CGFloat#>)
+        
+        frame2.
+        
+        self.view.addSubview(frame2)
+        view.sendSubviewToBack(frame2)///////
+       
         
         let frame3 = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         frame3.layer.borderWidth = 2
         frame3.layer.borderColor = UIColor.white.cgColor
         frame3.layer.masksToBounds = true
-        view.addSubview(frame3) ///////
-*/
-       
+        view.addSubview(frame3)
+        view.sendSubviewToBack(frame3)///////
+
+       */
         
         
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
@@ -103,7 +116,7 @@ class SecondViewController: UIViewController
         
         
         
-        currentCat.append(contentsOf: lynnewood) // lynnewood for debugging, just put in whatever category it is
+        currentCat.append(contentsOf: hs) // lynnewood for debugging, just put in whatever category it is
         
 //        currentCat[0].replacingOccurrences(of: "\\", with: "")
     
@@ -261,7 +274,7 @@ class SecondViewController: UIViewController
                 
                 //the method below happens the frame before the game starts
                 self.timerLabel.text = "\(count)"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 14) // change to how many seconds game will last - 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) // change to how many seconds game will last - 1
                     {
                         //this is what happens when the game ends (after 14 seconds)
                         self.timer?.invalidate()
@@ -270,6 +283,8 @@ class SecondViewController: UIViewController
                         self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
                         self.timerLabel?.text = ""
                         self.playAgain.isHidden = false
+                        
+                        
                     }
                 
                 timerFunc()
