@@ -288,12 +288,12 @@ class SecondViewController: UIViewController
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) // change to how many seconds game will last - 1
                     {
                         //this is what happens when the game ends (after 14 seconds)
-                        self.timer?.invalidate()
-                        self.timer3?.invalidate() //countdown
-                        self.view?.backgroundColor = UIColor.blue
-                        self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
-                        self.timerLabel?.text = ""
-                        self.playAgain.isHidden = false
+            self.timer?.invalidate()
+            self.timer3?.invalidate() //countdown
+            self.view?.backgroundColor = UIColor.blue
+            self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
+            self.timerLabel?.text = ""
+            self.playAgain.isHidden = false
                         
                         
                     }
