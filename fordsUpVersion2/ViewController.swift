@@ -19,12 +19,8 @@ let coopertownD = ["Sharon Auerbach", "Allison Bahleda", "Kristen Bilotta", "Kim
 var lynnewood: [String] = []
 
 var manoa: [String] = []
-
-var ms: [String] = []
-
-var hs: [String] = []
-
-
+var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
+var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
