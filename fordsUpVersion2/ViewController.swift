@@ -11,12 +11,20 @@ import SwiftSoup
 
 
 var chathum: [String] = []
+let chathumD = []
 var chestnutwald: [String] = []
+
 var coopertown: [String] = []
+let coopertownD = ["Sharon Auerbach", "Allison Bahleda", "Kristen Bilotta", "Kimberly Bohrer", "Beth Brawley", "Melissa Caiazzo", "Alejandro Camacho", "Jane Castner", "April Chester", "Jennifer Corcoran", "Susan Coyne", "Dominique DiPietro", "Nicole Dolski", "Janet Fastuca", "Megan Fore", "Lauren Gallagher", "Shelleyann Greenberg", "Rachel Gutman", "Kristine Heery", "Sharon Jackson", "Kimberly Kennedy", "Suzanne Kintzley", "Lauren Lacourte", "Francesca Livi", "Carole Loro", "Heather Markland", "Elizabeth Mastrocola", "Caitlin McCabe", "Jessica Mendez", "Jennifer Morris", "Deirdre Mulhern", "Stacey O\'Brien", "Emily O\'Neill", "Elizabeth Quinn", "Stephanie Reilly", "Jennifer Reimer", "Tonya Rodenbach", "Carolyn Russo", "Rebecca Schillinger", "Heather Schwerdtfeger", "Andrew Shanefield", "Jennifer Sheridan", "Luke Sullivan", "Amy Todd", "Sacoya Wesley", "Marisa Woodworth"]
 var lynnewood: [String] = []
+
 var manoa: [String] = []
+
 var ms: [String] = []
+
 var hs: [String] = []
+
+
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
@@ -78,7 +86,21 @@ class ViewController: UIViewController
             
             alert.dismiss(animated: true, completion: nil)
            internetCheck.invalidate()
-           // print(lynnewood)
+           print(coopertown)
+            coopertown.append(contentsOf: coopertownD)
+            
+            
+            print(chathum)
+            
+            print(chestnutwald)
+            print(lynnewood)
+            print(manoa)
+            print(ms)
+            print(hs)
+            
+            
+            
+            
         }
     
         else
@@ -87,7 +109,30 @@ class ViewController: UIViewController
            conCount += 1
             if conCount == 1
             {
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0)
+                {
+                    self.alert.dismiss(animated: true, completion: nil)
+                  
+                    let alert = UIAlertController(title: "Error getting teacher data", message: "Using default data", preferredStyle: .alert)
+                    
+                    
+                    let ok = UIAlertAction(title: "ok" , style: .default, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    //add arrays
+                   
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    internetCheck.invalidate()
+                }
             }
         }
     
