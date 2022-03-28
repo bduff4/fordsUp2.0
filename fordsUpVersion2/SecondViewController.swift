@@ -27,18 +27,6 @@ class SecondViewController: UIViewController
     
     var i = 0
     
-    
-    var name1 = "Mr. Marran"
-    var name2 = "Mr. Walter"
-    var name3 = "Mrs. Grady"
-    var name4 = "Mr. Fidler"
-    var name5 = "Mr. Grabias"
-    var name6 = "Mr. Corsi"
-    var name7 = "Ms. Wingood"
-    var name8 = "Ms. Kim"
-    var name9 = "Mr. Horan"
-    var name10 = "Mr. Berardoni"
-
     @IBOutlet weak var gameLabel: UILabel!
     
     
