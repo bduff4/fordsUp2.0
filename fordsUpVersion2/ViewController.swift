@@ -11,11 +11,11 @@ import SwiftSoup
 
 
 var chathum: [String] = []
-let chathumD = []
+//let chathumD = []
 var chestnutwald: [String] = []
 
 var coopertown: [String] = []
-let coopertownD = ["Sharon Auerbach", "Allison Bahleda", "Kristen Bilotta", "Kimberly Bohrer", "Beth Brawley", "Melissa Caiazzo", "Alejandro Camacho", "Jane Castner", "April Chester", "Jennifer Corcoran", "Susan Coyne", "Dominique DiPietro", "Nicole Dolski", "Janet Fastuca", "Megan Fore", "Lauren Gallagher", "Shelleyann Greenberg", "Rachel Gutman", "Kristine Heery", "Sharon Jackson", "Kimberly Kennedy", "Suzanne Kintzley", "Lauren Lacourte", "Francesca Livi", "Carole Loro", "Heather Markland", "Elizabeth Mastrocola", "Caitlin McCabe", "Jessica Mendez", "Jennifer Morris", "Deirdre Mulhern", "Stacey O\'Brien", "Emily O\'Neill", "Elizabeth Quinn", "Stephanie Reilly", "Jennifer Reimer", "Tonya Rodenbach", "Carolyn Russo", "Rebecca Schillinger", "Heather Schwerdtfeger", "Andrew Shanefield", "Jennifer Sheridan", "Luke Sullivan", "Amy Todd", "Sacoya Wesley", "Marisa Woodworth"]
+let coopertownD = []
 var lynnewood: [String] = []
 
 var manoa: [String] = []
