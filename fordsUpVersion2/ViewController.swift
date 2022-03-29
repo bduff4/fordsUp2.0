@@ -15,7 +15,7 @@ var chathum: [String] = []
 var chestnutwald: [String] = []
 
 var coopertown: [String] = []
-let coopertownD = []
+let coopertownD: [String] = []
 var lynnewood: [String] = []
 
 var manoa: [String] = []
