@@ -11,12 +11,16 @@ import SwiftSoup
 
 
 var chathum: [String] = []
+//let chathumD = []
 var chestnutwald: [String] = []
+
 var coopertown: [String] = []
+let coopertownD = []
 var lynnewood: [String] = []
+
 var manoa: [String] = []
-var ms: [String] = []
-var hs: [String] = []
+var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
+var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
@@ -78,7 +82,21 @@ class ViewController: UIViewController
             
             alert.dismiss(animated: true, completion: nil)
            internetCheck.invalidate()
-           // print(lynnewood)
+           print(coopertown)
+            coopertown.append(contentsOf: coopertownD)
+            
+            
+            print(chathum)
+            
+            print(chestnutwald)
+            print(lynnewood)
+            print(manoa)
+            print(ms)
+            print(hs)
+            
+            
+            
+            
         }
     
         else
@@ -87,7 +105,30 @@ class ViewController: UIViewController
            conCount += 1
             if conCount == 1
             {
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0)
+                {
+                    self.alert.dismiss(animated: true, completion: nil)
+                  
+                    let alert = UIAlertController(title: "Error getting teacher data", message: "Using default data", preferredStyle: .alert)
+                    
+                    
+                    let ok = UIAlertAction(title: "ok" , style: .default, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    //add arrays
+                   
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    internetCheck.invalidate()
+                }
             }
         }
     
