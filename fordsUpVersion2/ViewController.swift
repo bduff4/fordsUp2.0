@@ -19,8 +19,8 @@ let coopertownD: [String] = []
 var lynnewood: [String] = []
 
 var manoa: [String] = []
-var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
-var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
+var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
+var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
@@ -82,7 +82,9 @@ class ViewController: UIViewController
             
             alert.dismiss(animated: true, completion: nil)
            internetCheck.invalidate()
-           print(coopertown)
+          
+            /*
+            print(coopertown)
             coopertown.append(contentsOf: coopertownD)
             
             
@@ -93,7 +95,7 @@ class ViewController: UIViewController
             print(manoa)
             print(ms)
             print(hs)
-            
+            */
             
             
             
