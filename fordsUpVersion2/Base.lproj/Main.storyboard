@@ -167,7 +167,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBE-c5-5o2">
-                                <rect key="frame" x="279" y="295" width="88" height="29"/>
+                                <rect key="frame" x="272" y="301" width="87" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
                                 <nil key="textColor"/>
@@ -177,13 +177,14 @@
                                 <rect key="frame" x="202" y="280" width="208" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="fTg-Yz-3WO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Ready!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y16-yr-ECi">
-                                <rect key="frame" x="-8" y="170" width="375" height="278"/>
+                                <rect key="frame" x="12" y="170" width="355" height="278"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <nil key="textColor"/>
@@ -197,6 +198,7 @@
                     <connections>
                         <outlet property="gameLabel" destination="y16-yr-ECi" id="3vv-pT-W2C"/>
                         <outlet property="playAgain" destination="MPT-sg-MzQ" id="Q6R-8C-54h"/>
+                        <outlet property="redView" destination="NaV-8c-Zoa" id="fQP-aC-PkP"/>
                         <outlet property="timerLabel" destination="IBE-c5-5o2" id="ymS-uH-MET"/>
                     </connections>
                 </viewController>

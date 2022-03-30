@@ -48,7 +48,8 @@ class SecondViewController: UIViewController
         var checkDone = false
         var count = 5
         let gameTime = 5
-   
+    @IBOutlet weak var redView: UIView!
+    
     /*
     //public schools in haverford township
     var chathamParkTeachers = ["", "", ""]
@@ -78,7 +79,7 @@ class SecondViewController: UIViewController
         
         
         
-        
+        redView.layer.cornerRadius = 10
         
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         timerLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
@@ -181,7 +182,7 @@ class SecondViewController: UIViewController
         //tilt up
         if Int(roll) > -46 && Int(roll) < 30
         {
-            view.backgroundColor = UIColor.red
+            redView.backgroundColor = UIColor.red
             wrong += 1
             if wrong == 1
             {
@@ -198,17 +199,17 @@ class SecondViewController: UIViewController
         //tilt normal, set stuff to default?
         if Int(roll) > 59 && Int(roll) < 98
         {
-            view.backgroundColor = UIColor.blue
+            redView.backgroundColor = UIColor.blue
             correct = 0
             wrong = 0
-            self.gameLabel.text = ("Mr/Ms/Mrs.\n \(currentCat[i])") //change text to word name
+            self.gameLabel.text = ("Mr/Ms/Mrs/Dr.\n \(currentCat[i])") //change text to word name
         }
         
         
         //tilt down
         if Int(roll) > 149
         {
-            view.backgroundColor = UIColor.green
+            redView.backgroundColor = UIColor.green
             correct += 1
             if correct == 1
             {
@@ -260,7 +261,7 @@ class SecondViewController: UIViewController
                         //this is what happens when the game ends (after 14 seconds)
             self.timer?.invalidate()
             self.timer3?.invalidate() //countdown
-            self.view?.backgroundColor = UIColor.blue
+            self.redView?.backgroundColor = UIColor.blue
             self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
             self.timerLabel?.text = ""
             self.playAgain.isHidden = false
