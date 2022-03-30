@@ -158,20 +158,15 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NaV-8c-Zoa">
                                 <rect key="frame" x="12" y="10" width="351" height="647"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Ready!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y16-yr-ECi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Ready!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y16-yr-ECi">
                                         <rect key="frame" x="-105" y="185" width="561" height="277"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="y16-yr-ECi" secondAttribute="trailing" constant="-105" id="Flw-9d-LpY"/>
-                                    <constraint firstItem="y16-yr-ECi" firstAttribute="top" secondItem="NaV-8c-Zoa" secondAttribute="top" constant="185" id="YTG-hb-Ier"/>
-                                    <constraint firstItem="y16-yr-ECi" firstAttribute="leading" secondItem="NaV-8c-Zoa" secondAttribute="leading" constant="-105" id="mZV-zU-3Dy"/>
-                                    <constraint firstAttribute="bottom" secondItem="y16-yr-ECi" secondAttribute="bottom" constant="185" id="upp-AG-l40"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
@@ -197,18 +192,18 @@
                         <viewLayoutGuide key="safeArea" id="Z38-sF-Ocv"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="bottom" secondItem="NaV-8c-Zoa" secondAttribute="bottom" constant="10" id="2qZ-TH-FkE"/>
                             <constraint firstItem="Z38-sF-Ocv" firstAttribute="bottom" secondItem="MPT-sg-MzQ" secondAttribute="bottom" constant="302" id="9LU-Sh-zB5"/>
                             <constraint firstItem="IBE-c5-5o2" firstAttribute="top" secondItem="Z38-sF-Ocv" secondAttribute="top" constant="322" id="PHy-CI-h1F"/>
                             <constraint firstItem="Z38-sF-Ocv" firstAttribute="trailing" secondItem="IBE-c5-5o2" secondAttribute="trailing" constant="16" id="eI1-73-xDv"/>
-                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="top" secondItem="Z38-sF-Ocv" secondAttribute="top" constant="10" id="ejO-4M-M9U"/>
                             <constraint firstItem="Z38-sF-Ocv" firstAttribute="bottom" secondItem="IBE-c5-5o2" secondAttribute="bottom" constant="316" id="eqp-FY-Nk7"/>
+                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="trailing" secondItem="NaV-8c-Zoa" secondAttribute="trailing" constant="12" id="ewt-kx-MhX"/>
                             <constraint firstItem="MPT-sg-MzQ" firstAttribute="leading" secondItem="Z38-sF-Ocv" secondAttribute="leading" constant="202" id="fMv-5n-B8j"/>
-                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="leading" secondItem="Z38-sF-Ocv" secondAttribute="leading" constant="12" id="kIS-oP-LLV"/>
                             <constraint firstItem="MPT-sg-MzQ" firstAttribute="top" secondItem="Z38-sF-Ocv" secondAttribute="top" constant="308" id="rY5-To-RaA"/>
+                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="top" secondItem="Z38-sF-Ocv" secondAttribute="top" constant="10" id="rb9-Ma-CM5"/>
+                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="leading" secondItem="Z38-sF-Ocv" secondAttribute="leading" constant="12" id="tpo-UP-h5q"/>
                             <constraint firstItem="IBE-c5-5o2" firstAttribute="leading" secondItem="Z38-sF-Ocv" secondAttribute="leading" constant="272" id="ugL-16-NmR"/>
+                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="bottom" secondItem="NaV-8c-Zoa" secondAttribute="bottom" constant="10" id="vMg-f6-5B4"/>
                             <constraint firstAttribute="trailing" secondItem="MPT-sg-MzQ" secondAttribute="trailing" constant="-35" id="ysE-gd-Tkw"/>
-                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="trailing" secondItem="NaV-8c-Zoa" secondAttribute="trailing" constant="12" id="z9L-0Q-GFh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEj-Gv-gss"/>
@@ -232,6 +227,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
