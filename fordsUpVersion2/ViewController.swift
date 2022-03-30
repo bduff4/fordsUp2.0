@@ -33,7 +33,7 @@ class ViewController: UIViewController
 {
   
    
-    let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(note: this app requires an internet connection)", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(Note: For the best experience, please use an internet connection)", preferredStyle: .alert)
     
     
     

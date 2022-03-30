@@ -141,7 +141,7 @@ class SecondViewController: UIViewController
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0)
         {
             self.timerLabel?.text = ""
-            self.gameLabel?.text = "place phone on your forehead"
+            self.gameLabel?.text = "Place your phone on your forehead"
             
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
@@ -174,8 +174,9 @@ class SecondViewController: UIViewController
     //start at 60, end at 140
     @objc func updateLabel() {
        
-        let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
+       let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
 
+        
         let r: String = String(format: "%.2f", roll) //in case of debugging
         
         
@@ -246,8 +247,8 @@ class SecondViewController: UIViewController
                 countdownTimer() //timer
                print(i)
                print(currentCat)
-                
-               self.gameLabel.text = ("Mr/Ms/Mrs. \(currentCat[i])")
+                redView.backgroundColor = UIColor.blue
+               self.gameLabel.text = ("Mr/Ms/Mrs/Dr. \n \(currentCat[i])")
                 
                 
                 
@@ -262,10 +263,10 @@ class SecondViewController: UIViewController
             self.timer?.invalidate()
             self.timer3?.invalidate() //countdown
             self.redView?.backgroundColor = UIColor.blue
-            self.gameLabel?.text = "correct: \(self.correctPoints)\n wrong: \(self.wrongPoints)"
+            self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
             self.timerLabel?.text = ""
             self.playAgain.isHidden = false
-                        
+            
                         
                     }
                 
