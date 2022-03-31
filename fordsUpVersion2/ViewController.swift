@@ -10,27 +10,35 @@ import SwiftSoup
 //commit
 // 
 
-var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead"]
-var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni"]
-var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola"]
-var lynnewood: [String] = ["Sue Fairman", "Jillian Mcgilvery"]
-var manoa: [String] = ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos"]
-var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
-var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
-//var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
-//var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
-var currentCat: [String] = []
-var internetCheck: Timer = Timer()
-var connected = false
-var conCount = 0
-var conCount2 = 0
 
 
 
-class ViewController: UIViewController
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
   
-   
+    
+    
+    var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead"]
+    var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni"]
+    var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola"]
+    var lynnewood: [String] = ["Sue Fairman", "Jillian Mcgilvery"]
+    var manoa: [String] = ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos"]
+    var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
+    var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
+    //var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
+    //var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
+    var currentCat: [String] = []
+    var internetCheck: Timer = Timer()
+    var connected = false
+    var conCount = 0
+    var conCount2 = 0
+  
+    var myDecks: [Deck] = []
+    
+    
+    @IBOutlet weak var myTableView: UITableView!
+    
     let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(Note: For the best experience, please use an internet connection)", preferredStyle: .alert)
     
     
@@ -40,9 +48,17 @@ class ViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
-        
+        myTableView.delegate = self
+        myTableView.dataSource = self
         
         present(alert, animated: true, completion: nil)
+        
+        let lynnewoodDeck = Deck(name: "Lynnewood", description: "teachers", imageName: "lynnewood")
+        myDecks.append(lynnewoodDeck)
+        let  chathamDeck = Deck(name: "Chatham", description: "teachers", imageName: "chathum")
+        myDecks.append(chathamDeck)
+        
+        
         
         
     }
@@ -68,6 +84,26 @@ class ViewController: UIViewController
         internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myDecks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+       
+        let currentDeck = myDecks[indexPath.row]
+        
+        cell.textLabel?.text = currentDeck.name
+        cell.detailTextLabel?.text = currentDeck.description
+        cell.imageView?.image = UIImage(named: currentDeck.imageName)
+        
+        
+        return cell
+        
+    }
+    
     
     @objc func waitForInternet()
     {
@@ -127,7 +163,7 @@ class ViewController: UIViewController
                     
                     
                     
-                    internetCheck.invalidate()
+                    self.internetCheck.invalidate()
                 }
             }
         }
