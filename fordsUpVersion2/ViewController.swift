@@ -8,19 +8,17 @@
 import UIKit
 import SwiftSoup
 //commit
+// 
 
-
-var chathum: [String] = []
-//let chathumD = []
-var chestnutwald: [String] = []
-
-var coopertown: [String] = []
-let coopertownD: [String] = []
-var lynnewood: [String] = []
-
-var manoa: [String] = []
-var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
-var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
+var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead"]
+var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni"]
+var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola"]
+var lynnewood: [String] = ["Sue Fairman", "Jillian Mcgilvery"]
+var manoa: [String] = ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos"]
+var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
+var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
+//var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
+//var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
@@ -55,7 +53,7 @@ class ViewController: UIViewController
     
     
         
-        parse(urlString: "https://www.haverford.k12.pa.us/home-chatham-park/directory", toArray: "chathum")
+        parse(urlString: "https://www.haverford.k12.pa.us/home-chatham-park/directory", toArray: "chatham")
         
         parse(urlString: "https://www.haverford.k12.pa.us/home-chestnutwold/directory", toArray: "chestnutwold")
         parse(urlString: "https://www.haverford.k12.pa.us/home-coopertown/directory",  toArray: "coopertown")
@@ -75,7 +73,7 @@ class ViewController: UIViewController
     {
        
       
-        if chathum.count > 5 && chestnutwald.count > 5 && coopertown.count > 5 && lynnewood.count > 5 && manoa.count > 5 && ms.count > 5 && hs.count > 5
+        if chatham.count > 5 && chestnutwold.count > 5 && coopertown.count > 5 && lynnewood.count > 5 && manoa.count > 5 && ms.count > 5 && hs.count > 5
         {
             connected = true
            
@@ -157,11 +155,11 @@ class ViewController: UIViewController
 //                         // do stuff to the ui like update a label etc.  All that must be done on the main thread.
 //                    }
                     
-                    if toArray == "chathum"
-                    {chathum.append(contentsOf: names)}
+                    if toArray == "chatham"
+                    {chatham.append(contentsOf: names)}
                     
                     else if toArray == "chestnutwold"
-                    {chestnutwald.append(contentsOf: names)}
+                    {chestnutwold.append(contentsOf: names)}
                     
                    else if toArray == "coopertown"
                     {coopertown.append(contentsOf: names)}
