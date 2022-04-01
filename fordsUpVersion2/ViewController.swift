@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let lynnewoodDeck = Deck(name: "Lynnewood", description: "teachers", imageName: "lynnewood")
         myDecks.append(lynnewoodDeck)
-        let  chathamDeck = Deck(name: "Chatham", description: "teachers", imageName: "chathum")
+        let  chathamDeck = Deck(name: "Chatham", description: "teachers", imageName: "chatham")
         myDecks.append(chathamDeck)
         
         
