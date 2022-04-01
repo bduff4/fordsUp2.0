@@ -10,6 +10,7 @@ import SwiftSoup
 //commit
 // 
 
+// needs to be outside class
 var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead"]
 var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni"]
 var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola"]
@@ -27,10 +28,17 @@ var conCount2 = 0
 
 
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
   
-   
+    
+  
+  
+    var myDecks: [Deck] = []
+    
+    
+    @IBOutlet weak var myTableView: UITableView!
+    
     let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(Note: For the best experience, please use an internet connection)", preferredStyle: .alert)
     
     
@@ -40,9 +48,17 @@ class ViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
-        
+        myTableView.delegate = self
+        myTableView.dataSource = self
         
         present(alert, animated: true, completion: nil)
+        
+        let lynnewoodDeck = Deck(name: "Lynnewood", description: "teachers", imageName: "lynnewood")
+        myDecks.append(lynnewoodDeck)
+        let  chathamDeck = Deck(name: "Chatham", description: "teachers", imageName: "chatham")
+        myDecks.append(chathamDeck)
+        
+        
         
         
     }
@@ -68,6 +84,26 @@ class ViewController: UIViewController
         internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myDecks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+       
+        let currentDeck = myDecks[indexPath.row]
+        
+        cell.textLabel?.text = currentDeck.name
+        cell.detailTextLabel?.text = currentDeck.description
+        cell.imageView?.image = UIImage(named: currentDeck.imageName)
+        
+        
+        return cell
+        
+    }
+    
     
     @objc func waitForInternet()
     {
