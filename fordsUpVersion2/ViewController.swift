@@ -55,11 +55,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let lynnewoodDeck = Deck(name: "Lynnewood", description: "teachers", imageName: "lynnewood")
         myDecks.append(lynnewoodDeck)
+        
         let  chathamDeck = Deck(name: "Chatham", description: "teachers", imageName: "chatham")
         myDecks.append(chathamDeck)
         
+        let chestnutwoldDeck = Deck(name: "Chestnutwold", description: "teachers", imageName: "chestnutwold")
+        myDecks.append(chestnutwoldDeck)
         
+        let  coopertownDeck = Deck(name: "Coopertown", description: "teachers", imageName: "coopertown")
+        myDecks.append(coopertownDeck)
         
+        let  manoaDeck = Deck(name: "Manoa", description: "teachers", imageName: "manoa")
+        myDecks.append(manoaDeck)
+        
+        let  msDeck = Deck(name: "Haverford Middle School", description: "teachers", imageName: "ms")
+        myDecks.append(msDeck)
+        
+        let  hsDeck = Deck(name: "Haverford High School", description: "teachers", imageName: "hs")
+        myDecks.append(hsDeck)
         
     }
 
