@@ -10,7 +10,21 @@ import SwiftSoup
 //commit
 // 
 
-
+// needs to be outside class
+var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead"]
+var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni"]
+var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola"]
+var lynnewood: [String] = ["Sue Fairman", "Jillian Mcgilvery"]
+var manoa: [String] = ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos"]
+var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
+var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
+//var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
+//var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
+var currentCat: [String] = []
+var internetCheck: Timer = Timer()
+var connected = false
+var conCount = 0
+var conCount2 = 0
 
 
 
@@ -18,21 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 {
   
     
-    
-    var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead"]
-    var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni"]
-    var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola"]
-    var lynnewood: [String] = ["Sue Fairman", "Jillian Mcgilvery"]
-    var manoa: [String] = ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos"]
-    var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
-    var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
-    //var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
-    //var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
-    var currentCat: [String] = []
-    var internetCheck: Timer = Timer()
-    var connected = false
-    var conCount = 0
-    var conCount2 = 0
+  
   
     var myDecks: [Deck] = []
     
@@ -163,7 +163,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     
                     
                     
-                    self.internetCheck.invalidate()
+                    internetCheck.invalidate()
                 }
             }
         }
