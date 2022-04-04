@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R2m-VD-GA0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R2m-VD-GA0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,8 +31,8 @@
                                         <rect key="frame" x="0.0" y="116" width="335" height="415"/>
                                         <color key="backgroundColor" red="0.42938488720000001" green="0.050642587240000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="fCb-ZN-YGg" detailTextLabel="kMU-IB-f4E" imageView="kU3-vE-jxl" style="IBUITableViewCellStyleSubtitle" id="Ffi-my-nfk">
-                                                <rect key="frame" x="0.0" y="28" width="335" height="55.5"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="myCell" textLabel="fCb-ZN-YGg" detailTextLabel="kMU-IB-f4E" imageView="kU3-vE-jxl" style="IBUITableViewCellStyleSubtitle" id="Ffi-my-nfk">
+                                                <rect key="frame" x="0.0" y="44.5" width="335" height="55.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ffi-my-nfk" id="ewX-tm-dBh">
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="55.5"/>
@@ -76,6 +77,7 @@
                     <navigationItem key="navigationItem" title="Fords Up" id="tor-pf-fuY"/>
                     <connections>
                         <outlet property="myTableView" destination="hoD-an-ZOP" id="Q8b-UY-gTq"/>
+                        <outlet property="startButton" destination="GwQ-dF-caQ" id="ZMc-oG-Qc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -192,6 +194,6 @@
         <segue reference="lhK-Ii-gxP"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="lynnewood" width="159" height="142"/>
+        <image name="lynnewood" width="140" height="125"/>
     </resources>
 </document>

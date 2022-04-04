@@ -10,15 +10,20 @@ import SwiftSoup
 //commit
 // 
 
-var chatham: [String] = ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead", "name Cooke", "name Genstein", "name Greenberg", "name Hickey", "name Guardiola", "name Krauter", "name MacCrory", "name Moore", "name Miroumand", "name O'Brien", "name Schaefer", "name Shanefield"]
-var chestnutwold: [String] = ["Jaclyn McAnany", "Kristie Pennoni", "name Corr", "name Greenberg", "name Kerrins", "name Reynolds", "name Recknagel", "name Shanefield", "name Sminkey"]
-var coopertown: [String] = ["Carole Loro", "Elizabeth Mastrocola", "name Caiazzo", "name Coyne", "name Greenberg", "name Shanefield"]
-var lynnewood: [String] = ["Sue Fairman", "Jillian Mcgilvery", "name Ardoline", "name Bond-Farrel", "name Bush", "name Doyle", "name Elko", "name Ferraro", "name Grahm-Popiel", "name Greenberg", "name Isen", "name Kelly", "name Kofsky", "name McAndrews", "name Pennoni", "name Shanefield", "name Sherbinko"]
-var manoa: [String] = ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos", "name Chase", "name Greenberg", "name Klock", "name Kulsik", "name Levin", "name Miller", "name Reynolds", "name Shanefield", "name Sterba", "name Sullivan", "name Turek", "name Welsh", "name Wishart"]
-//var ms: [String] = ["Mr. Horan", "Ms. Kim", "Ms. Wingood", ]
-//var hs: [String] = ["Mr. Marron", "Mr. Walter", "Mrs. Grady", "Mr. Fidler", "Mr. Grabias", "Mr. Corsi", "Mr. Berardoni"]
-var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
-var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"]
+var chatham: [String] = []
+//16
+var chestnutwold: [String] = []
+//9
+var coopertown: [String] = []
+//6
+var lynnewood: [String] = []
+//17
+var manoa: [String] = []
+//18
+var ms: [String] = []
+//21
+var hs: [String] = []
+//17
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
 var connected = false
@@ -29,15 +34,13 @@ var conCount2 = 0
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
-  
-    
-  
-  
     var myDecks: [Deck] = []
+    @IBOutlet weak var startButton: UIButton!
+    
     
     
     @IBOutlet weak var myTableView: UITableView!
-    
+
     let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(Note: For the best experience, please use an internet connection)", preferredStyle: .alert)
     
     
@@ -46,9 +49,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-       
         myTableView.delegate = self
         myTableView.dataSource = self
+    
+        
+        startButton.isEnabled = false
+        startButton.tintColor = UIColor.systemBlue
+        
+        
+        myTableView.sectionIndexColor = UIColor.blue
+        
+        chatham.append(contentsOf: ["Ellen Cohan", "Catherine Mallam", "Josephine Schoppet", "Jabari Whitehead", "name Cooke", "name Genstein", "name Greenberg", "name Hickey", "name Guardiola", "name Krauter", "name MacCrory", "name Moore", "name Miroumand", "name O'Brien", "name Schaefer", "name Shanefield"])
+        
+        chestnutwold.append(contentsOf: ["Jaclyn McAnany", "Kristie Pennoni", "name Corr", "name Greenberg", "name Kerrins", "name Reynolds", "name Recknagel", "name Shanefield", "name Sminkey"])
+        
+        coopertown.append(contentsOf: ["Carole Loro", "Elizabeth Mastrocola", "name Caiazzo", "name Coyne", "name Greenberg", "name Shanefield"])
+        
+        lynnewood.append(contentsOf: ["Sue Fairman", "Jillian Mcgilvery", "name Ardoline", "name Bond-Farrel", "name Bush", "name Doyle", "name Elko", "name Ferraro", "name Grahm-Popiel", "name Greenberg", "name Isen", "name Kelly", "name Kofsky", "name McAndrews", "name Pennoni", "name Shanefield", "name Sherbinko"])
+        
+        manoa.append(contentsOf: ["Regan Bushey", "Ryan Davidson", "Maria Hernandez", "Quinton Herriot", "Carolynne Kilcullen", "George Ramoundos", "name Chase", "name Greenberg", "name Klock", "name Kulsik", "name Levin", "name Miller", "name Reynolds", "name Shanefield", "name Sterba", "name Sullivan", "name Turek", "name Welsh", "name Wishart"])
+        
+        ms.append(contentsOf: ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"])
+        
+        hs.append(contentsOf: ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"])
+        
         
         present(alert, animated: true, completion: nil)
         
@@ -77,10 +101,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidAppear(_ animated: Bool)
     {
-       
-    
-    
-        
         parse(urlString: "https://www.haverford.k12.pa.us/home-chatham-park/directory", toArray: "chatham")
         
         parse(urlString: "https://www.haverford.k12.pa.us/home-chestnutwold/directory", toArray: "chestnutwold")
@@ -112,15 +132,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.imageView?.image = UIImage(named: currentDeck.imageName)
         
         
+        
+        if cell.isSelected
+        {
+            cell.backgroundColor = UIColor.blue
+        }
+        
         return cell
+        
+    }
+    
+    func addingToSelected(array: inout [String], remove: Int)
+    {
+        currentCat.removeAll()
+        if connected == true
+        {
+            array.removeSubrange(0...remove)
+        }
+        currentCat.append(contentsOf: array)
+    
+    }
+    
+    
+    ///TODO
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+       
+        let sel = indexPath.row
+        print(indexPath.row)
+        startButton.isEnabled = true
+        startButton.tintColor = UIColor.systemBlue
+        if sel == 0
+        {
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     
     
     @objc func waitForInternet()
     {
-       
-      
         if chatham.count > 5 && chestnutwold.count > 5 && coopertown.count > 5 && lynnewood.count > 5 && manoa.count > 5 && ms.count > 5 && hs.count > 5
         {
             connected = true

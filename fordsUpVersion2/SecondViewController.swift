@@ -14,7 +14,7 @@ import SwiftSoup
 
 class SecondViewController: UIViewController
 {
-            
+    
     var counter = 3
            
     var timeLaunched: Double = 0
@@ -48,6 +48,7 @@ class SecondViewController: UIViewController
         var checkDone = false
         var count = 5
         let gameTime = 5
+        var numGuesses = 0
     @IBOutlet weak var redView: UIView!
     
     /*
@@ -96,7 +97,7 @@ class SecondViewController: UIViewController
         
         
         
-        currentCat.append(contentsOf: hs) // lynnewood for debugging, just put in whatever category it is
+        currentCat.append(contentsOf: hs) // lynnewood for debugging, just put in whatever category it is, this is going to need a lot if if else statements
         
 //        currentCat[0].replacingOccurrences(of: "\\", with: "")
     
@@ -191,6 +192,7 @@ class SecondViewController: UIViewController
                 vibrate()
                 self.gameLabel.text = "-1"
                 i += 1
+                numGuesses += 1
                 // this makes stuff happen once when phone is tilted up
             }
             
@@ -203,7 +205,29 @@ class SecondViewController: UIViewController
             redView.backgroundColor = UIColor.blue
             correct = 0
             wrong = 0
+           
+            
+            if i <= currentCat.count
+            {
             self.gameLabel.text = ("Mr/Ms/Mrs/Dr.\n \(currentCat[i])") //change text to word name
+                correct += 1
+           
+                if correct == 1
+                {
+                numGuesses += 1
+                }
+            }
+            
+            else
+            {
+                self.timer?.invalidate()
+                self.timer2?.invalidate()
+                self.timer3?.invalidate()
+            }
+            
+            
+            
+            
         }
         
         
@@ -218,6 +242,7 @@ class SecondViewController: UIViewController
                 correctPoints += 1
                 self.gameLabel.text = "+1"
                 i += 1
+                numGuesses += 1
                 // this makes stuff happen once when phone is tilted down
             }
         }
