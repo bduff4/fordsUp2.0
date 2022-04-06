@@ -167,8 +167,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(indexPath.row)
         startButton.isEnabled = true
         startButton.tintColor = UIColor.systemBlue
-        //18,20,16
-        
         if sel == 0
         {
             addingToSelected(array: &lynnewood, remove: 16)

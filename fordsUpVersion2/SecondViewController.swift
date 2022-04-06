@@ -43,12 +43,14 @@ class SecondViewController: UIViewController
         var timer3: Timer?
         var correct = 0
         var wrong = 0
+        var normal = 0
         var wrongPoints = 0
         var correctPoints = 0
         var checkDone = false
-        var count = 5
-        let gameTime = 5
-        var numGuesses = 0
+        var count = 30 // change for time
+        let gameTime = 30 // change for time
+        var numGuesses = -1
+        
     @IBOutlet weak var redView: UIView!
     
     /*
@@ -65,19 +67,7 @@ class SecondViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-      //print(chathum)
-      /*
-        let frame = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        frame.layer.borderWidth = 3
-        frame.layer.borderColor = UIColor.white.cgColor
-        frame.layer.cornerRadius = 10
-        //frame.layer.masksToBounds = true
-        frame.clipsToBounds = true
-        view.addSubview(frame)
-        view.sendSubviewToBack(frame)///////
-       
-        */
-        
+      
         
         
         redView.layer.cornerRadius = 10
@@ -95,19 +85,20 @@ class SecondViewController: UIViewController
         
         self.timerLabel?.text = "3"
         
+      //remove 2 below
+       /* currentCat.removeAll()
+        currentCat.append(contentsOf: ["1", "2", "3", "4", "5"])
+        */
         
+        //currentCat.append(contentsOf: hs) // lynnewood for debugging, just put in whatever category it is, this is going to need a lot if if else statements
+        //sike
         
-        currentCat.append(contentsOf: hs) // lynnewood for debugging, just put in whatever category it is, this is going to need a lot if if else statements
-        
-//        currentCat[0].replacingOccurrences(of: "\\", with: "")
+
     
         
         for j in 0..<currentCat.count
         {
             currentCat[j] = currentCat[j].components(separatedBy: " ").last!
-            
-            
-            
             
             if currentCat[j].contains("\'") || currentCat[j].contains("\\'")
             {
@@ -122,8 +113,8 @@ class SecondViewController: UIViewController
         
         
         
-        
-        currentCat.shuffle()
+        //fix
+       currentCat.shuffle()
         
         
         //game starts now
@@ -143,7 +134,7 @@ class SecondViewController: UIViewController
         {
             self.timerLabel?.text = ""
             self.gameLabel?.text = "Place your phone on your forehead"
-            
+            print("cat guess \(currentCat.count)")
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
     
@@ -185,14 +176,17 @@ class SecondViewController: UIViewController
         if Int(roll) > -46 && Int(roll) < 30
         {
             redView.backgroundColor = UIColor.red
+            normal = 0
             wrong += 1
             if wrong == 1
             {
                 wrongPoints += 1
                 vibrate()
                 self.gameLabel.text = "-1"
-                i += 1
                 numGuesses += 1
+                print("num guess \(numGuesses+1)")
+//                numGuesses += 1
+//                print("num guess \(numGuesses)")
                 // this makes stuff happen once when phone is tilted up
             }
             
@@ -207,23 +201,35 @@ class SecondViewController: UIViewController
             wrong = 0
            
             
-            if i <= currentCat.count
+            if numGuesses == currentCat.count-1
             {
-            self.gameLabel.text = ("Mr/Ms/Mrs/Dr.\n \(currentCat[i])") //change text to word name
-                correct += 1
+                self.timer?.invalidate()
+                self.timer3?.invalidate() //countdown
+                self.redView?.backgroundColor = UIColor.blue
+                self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
+                self.timerLabel?.text = ""
+                self.playAgain.isHidden = false
+            }
+            
+            
+            else if numGuesses < currentCat.count
+            {
            
-                if correct == 1
+                
+                normal += 1
+                if normal == 1
                 {
-                numGuesses += 1
+                   
+                   
+                   
+                    self.gameLabel.text = ("Mr/Ms/Mrs/Dr.\n \(currentCat[i])") //change text to word name
+                    i += 1
+                    
+                    
                 }
             }
             
-            else
-            {
-                self.timer?.invalidate()
-                self.timer2?.invalidate()
-                self.timer3?.invalidate()
-            }
+            
             
             
             
@@ -235,14 +241,19 @@ class SecondViewController: UIViewController
         if Int(roll) > 149
         {
             redView.backgroundColor = UIColor.green
+           normal = 0
+            
             correct += 1
             if correct == 1
             {
                 vibrate()
                 correctPoints += 1
                 self.gameLabel.text = "+1"
-                i += 1
                 numGuesses += 1
+                print("num guess \(numGuesses+1)")
+                //  i += 1
+//                numGuesses += 1
+//                print("num guess \(numGuesses)")
                 // this makes stuff happen once when phone is tilted down
             }
         }
@@ -261,7 +272,7 @@ class SecondViewController: UIViewController
     
     @objc func check()
     {
-       let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
+       let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi) ?? -1
         
         
         
@@ -270,10 +281,10 @@ class SecondViewController: UIViewController
                 checkDone = true
                 timer2?.invalidate() //stops the check if phone is in correct position
                 countdownTimer() //timer
-               print(i)
-               print(currentCat)
+               //print(i)
+               //print(currentCat)
                 redView.backgroundColor = UIColor.blue
-               self.gameLabel.text = ("Mr/Ms/Mrs/Dr. \n \(currentCat[i])")
+               self.gameLabel.text = ("Mr/Ms/Mrs/Dr. \n \(currentCat[0])")
                 
                 
                 
@@ -282,9 +293,9 @@ class SecondViewController: UIViewController
                 
                 //the method below happens the frame before the game starts
                 self.timerLabel.text = "\(count)"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4) // change to how many seconds game will last - 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 29) // change to how many seconds game will last - 1
                     {
-                        //this is what happens when the game ends (after 14 seconds)
+                        //this is what happens when the game ends (after 30 seconds)
             self.timer?.invalidate()
             self.timer3?.invalidate() //countdown
             self.redView?.backgroundColor = UIColor.blue
