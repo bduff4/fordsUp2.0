@@ -96,6 +96,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let  hsDeck = Deck(name: "Haverford High School", description: "teachers", imageName: "hs")
         myDecks.append(hsDeck)
         
+        myTableView.isScrollEnabled = false
+        
     }
 
     override func viewDidAppear(_ animated: Bool)
@@ -208,6 +210,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func waitForInternet()
     {
+        
         if chatham.count > 25 && chestnutwold.count > 25 && coopertown.count > 25 && lynnewood.count > 25 && manoa.count > 25 && ms.count > 25 && hs.count > 25
         {
             connected = true
@@ -239,7 +242,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
             }
-        //
+        
 
     }
     

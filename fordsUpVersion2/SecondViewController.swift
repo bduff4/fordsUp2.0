@@ -47,8 +47,8 @@ class SecondViewController: UIViewController
         var wrongPoints = 0
         var correctPoints = 0
         var checkDone = false
-        var count = 30 // change for time
-        let gameTime = 30 // change for time
+        var count = 60 // change for time
+        let gameTime = 60 // change for time
         var numGuesses = -1
         
     @IBOutlet weak var redView: UIView!
@@ -203,12 +203,7 @@ class SecondViewController: UIViewController
             
             if numGuesses == currentCat.count-1
             {
-                self.timer?.invalidate()
-                self.timer3?.invalidate() //countdown
-                self.redView?.backgroundColor = UIColor.blue
-                self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
-                self.timerLabel?.text = ""
-                self.playAgain.isHidden = false
+                self.endStuff()
             }
             
             
@@ -293,16 +288,10 @@ class SecondViewController: UIViewController
                 
                 //the method below happens the frame before the game starts
                 self.timerLabel.text = "\(count)"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 29) // change to how many seconds game will last - 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 59) // change to how many seconds game will last - 1
                     {
                         //this is what happens when the game ends (after 30 seconds)
-            self.timer?.invalidate()
-            self.timer3?.invalidate() //countdown
-            self.redView?.backgroundColor = UIColor.blue
-            self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
-            self.timerLabel?.text = ""
-            self.playAgain.isHidden = false
-            
+                        self.endStuff()
                         
                     }
                 
@@ -317,7 +306,17 @@ class SecondViewController: UIViewController
     print("test")
     }
     
-  
+  func endStuff()
+    {
+        self.timer?.invalidate()
+        self.timer3?.invalidate() //countdown
+        self.redView?.backgroundColor = UIColor.blue
+        self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
+        self.timerLabel?.text = ""
+        self.playAgain.isHidden = false
+        self.vibrate()
+        self.vibrate()
+    }
     
 
     
