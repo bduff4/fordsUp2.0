@@ -75,25 +75,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         present(alert, animated: true, completion: nil)
         
-        let lynnewoodDeck = Deck(name: "Lynnewood", description: "teachers", imageName: "lynnewood")
+        let lynnewoodDeck = Deck(name: "Lynnewood", description: "", imageName: "lynnewood")
         myDecks.append(lynnewoodDeck)
         
-        let  chathamDeck = Deck(name: "Chatham", description: "teachers", imageName: "chatham")
+        let  chathamDeck = Deck(name: "Chatham", description: "", imageName: "chatham")
         myDecks.append(chathamDeck)
         
-        let chestnutwoldDeck = Deck(name: "Chestnutwold", description: "teachers", imageName: "chestnutwold")
+        let chestnutwoldDeck = Deck(name: "Chestnutwold", description: "", imageName: "chestnutwold")
         myDecks.append(chestnutwoldDeck)
         
-        let  coopertownDeck = Deck(name: "Coopertown", description: "teachers", imageName: "coopertown")
+        let  coopertownDeck = Deck(name: "Coopertown", description: "", imageName: "coopertown")
         myDecks.append(coopertownDeck)
         
-        let  manoaDeck = Deck(name: "Manoa", description: "teachers", imageName: "manoa")
+        let  manoaDeck = Deck(name: "Manoa", description: "", imageName: "manoa")
         myDecks.append(manoaDeck)
         
-        let  msDeck = Deck(name: "Haverford Middle School", description: "teachers", imageName: "ms")
+        let  msDeck = Deck(name: "Haverford Middle School", description: "", imageName: "ms")
         myDecks.append(msDeck)
         
-        let  hsDeck = Deck(name: "Haverford High School", description: "teachers", imageName: "hs")
+        let  hsDeck = Deck(name: "Haverford High School", description: "", imageName: "hs")
         myDecks.append(hsDeck)
         
         myTableView.isScrollEnabled = false
