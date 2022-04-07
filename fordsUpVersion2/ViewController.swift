@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         ms.append(contentsOf: ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"])
         
-        hs.append(contentsOf: ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers"])
+        hs.append(contentsOf: ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers", "name Donaghy"])
         
         
         present(alert, animated: true, completion: nil)
@@ -201,7 +201,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         else if sel == 6
         {
-            addingToSelected(array: &hs, remove: 16)
+            addingToSelected(array: &hs, remove: 17)
         }
         
         

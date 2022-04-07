@@ -47,7 +47,7 @@ class SecondViewController: UIViewController
         var wrongPoints = 0
         var correctPoints = 0
         var checkDone = false
-        var count = 8 // change for time
+        var count = 60 // change for time
         let gameTime = 60 // change for time
         var numGuesses = -1
         
