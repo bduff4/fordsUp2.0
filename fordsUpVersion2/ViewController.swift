@@ -9,19 +9,19 @@ import UIKit
 import SwiftSoup
 //commit
 // 
-var lynnewood: [String] = []
+var lynnewood: [String] = ["name Fairman", "name Mcgilvery", "name Ardoline", "name Bond-Farrel", "name Bush", "name Doyle", "name Elko", "name Ferraro", "name Grahm-Popiel", "name Greenberg", "name Isen", "name Kelly", "name Kofsky", "name McAndrews", "name Pennoni", "name Shanefield", "name Sherbinko"]
 //16
-var chatham: [String] = []
+var chatham: [String] = ["name Cohan", "name Mallam", "name Schoppet", "name Whitehead", "name Cooke", "name Genstein", "name Greenberg", "name Hickey", "name Guardiola", "name Krauter", "name MacCrory", "name Moore", "name Miroumand", "name O'Brien", "name Schaefer", "name Shanefield"]
 //15
-var chestnutwold: [String] = []
+var chestnutwold: [String] = ["name McAnany", "name Pennoni", "name Corr", "name Greenberg", "name Kerrins", "name Reynolds", "name Recknagel", "name Shanefield", "name Sminkey"]
 //8
-var coopertown: [String] = []
+var coopertown: [String] = ["name Loro", "name Mastrocola", "name Caiazzo", "name Coyne", "name Greenberg", "name Shanefield"]
 //5
-var manoa: [String] = []
+var manoa: [String] = ["name Bushey", "name Davidson", "name Hernandez", "name Herriot", "name Kilcullen", "name Ramoundos", "name Chase", "name Greenberg", "name Klock", "name Kulsik", "name Levin", "name Miller", "name Reynolds", "name Shanefield", "name Sterba", "name Sullivan", "name Turek", "name Welsh", "name Wishart"]
 //18
-var ms: [String] = []
+var ms: [String] = ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"]
 //20
-var hs: [String] = []
+var hs: [String] = ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers", "name Donaghy"]
 //16
 var currentCat: [String] = []
 var internetCheck: Timer = Timer()
@@ -36,13 +36,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var myDecks: [Deck] = []
     @IBOutlet weak var startButton: UIButton!
     var removeCount = 0
-    
-    
     @IBOutlet weak var myTableView: UITableView!
 
-    let alert = UIAlertController(title: "Waiting to connect", message: "This won't take long \n(Note: For the best experience, please use an internet connection)", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Waiting to connect", message: "Restart app if this takes longer than 10 seconds \n(Note: For the best experience, please use an internet connection)", preferredStyle: .alert)
     
-    
+    var vcAppeared = 0
     
     override func viewDidLoad()
     {
@@ -50,32 +48,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         myTableView.delegate = self
         myTableView.dataSource = self
-    
-        
         startButton.isEnabled = false
         startButton.tintColor = UIColor.systemBlue
-        
-        
         myTableView.sectionIndexColor = UIColor.blue
        
-        lynnewood.append(contentsOf: ["name Fairman", "name Mcgilvery", "name Ardoline", "name Bond-Farrel", "name Bush", "name Doyle", "name Elko", "name Ferraro", "name Grahm-Popiel", "name Greenberg", "name Isen", "name Kelly", "name Kofsky", "name McAndrews", "name Pennoni", "name Shanefield", "name Sherbinko"])
-        
-        chatham.append(contentsOf: ["name Cohan", "name Mallam", "name Schoppet", "name Whitehead", "name Cooke", "name Genstein", "name Greenberg", "name Hickey", "name Guardiola", "name Krauter", "name MacCrory", "name Moore", "name Miroumand", "name O'Brien", "name Schaefer", "name Shanefield"])
-        
-        chestnutwold.append(contentsOf: ["name McAnany", "name Pennoni", "name Corr", "name Greenberg", "name Kerrins", "name Reynolds", "name Recknagel", "name Shanefield", "name Sminkey"])
-        
-        coopertown.append(contentsOf: ["name Loro", "name Mastrocola", "name Caiazzo", "name Coyne", "name Greenberg", "name Shanefield"])
-        
-        manoa.append(contentsOf: ["name Bushey", "name Davidson", "name Hernandez", "name Herriot", "name Kilcullen", "name Ramoundos", "name Chase", "name Greenberg", "name Klock", "name Kulsik", "name Levin", "name Miller", "name Reynolds", "name Shanefield", "name Sterba", "name Sullivan", "name Turek", "name Welsh", "name Wishart"])
-        
-        ms.append(contentsOf: ["name Horan", "name Kim", "name Wingood", "name Brocklesby", "name Crater", "name Finnegan", "name Naylor", "name Wagner", "name Cararelli", "name Langley", "name Ramos", "name Viola", "name Stump", "name Barber", "name DiMattia", "name Henrey", "name Hay", "name Meier", "name Finn", "name Tallon", "name Whitney"])
-        
-        hs.append(contentsOf: ["name Marren", "name Walter", "name Grady", "name Fidler", "name Grabias", "name Corsi", "name Berardoni", "name Althouse", "name Brennan", "name Hart", "name Cunicelli", "name Latrano", "name Donaghy", "name Fein", "name Malligan", "name Smith", "name Withers", "name Donaghy"])
-        
-        
+        vcAppeared += 1
+    
         present(alert, animated: true, completion: nil)
+        myTableView.isScrollEnabled = false
         
-        let lynnewoodDeck = Deck(name: "Lynnewood", description: "", imageName: "lynnewood")
+        if vcAppeared == 1 //first time vc appears
+        {
+        
+            let lynnewoodDeck = Deck(name: "Lynnewood", description: "", imageName: "lynnewood")
         myDecks.append(lynnewoodDeck)
         
         let  chathamDeck = Deck(name: "Chatham", description: "", imageName: "chatham")
@@ -96,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let  hsDeck = Deck(name: "Haverford High School", description: "", imageName: "hs")
         myDecks.append(hsDeck)
         
-        myTableView.isScrollEnabled = false
+        }
         
     }
 
@@ -146,20 +131,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    func addingToSelected(array: inout [String], remove: Int)
+    func addingToSelected(array: inout [String])
     {
-        removeCount = 0
-        print("array is \(array)")
         currentCat.removeAll()
-        if connected == true && removeCount == 0
-        {
-            array.removeSubrange(0...remove)
-            removeCount += 1
-            print("new array is \(array)")
-        }
         currentCat.append(contentsOf: array)
-    print("current category list \(currentCat)")
+        print(array.first)
+        
+        //print(array)
     }
+    
+    func removeAfterConnected(array: inout [String], remove: Int)
+    {
+
+            array.removeSubrange(0...remove)
+        print(array.first)
+    }
+    
+    
+    
+    
     
     
     
@@ -167,42 +157,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
        
         sel = indexPath.row
-        print(indexPath.row)
+        print("selected row is \(indexPath.row)")
         startButton.isEnabled = true
         startButton.tintColor = UIColor.systemBlue
         if sel == 0
         {
-            addingToSelected(array: &lynnewood, remove: 16)
+            addingToSelected(array: &lynnewood)
         }
 
         else if sel == 1
         {
-            addingToSelected(array: &chatham, remove: 15)
+            addingToSelected(array: &chatham)
         }
         
         else if sel == 2
         {
-            addingToSelected(array: &chestnutwold, remove: 8)
+            addingToSelected(array: &chestnutwold)
         }
         
         else if sel == 3
         {
-            addingToSelected(array: &coopertown, remove: 5)
+            addingToSelected(array: &coopertown)
         }
         
         else if sel == 4
         {
-            addingToSelected(array: &manoa, remove: 18)
+            addingToSelected(array: &manoa)
         }
         
         else if sel == 5
         {
-            addingToSelected(array: &ms, remove: 20)
+            addingToSelected(array: &ms)
         }
         
         else if sel == 6
         {
-            addingToSelected(array: &hs, remove: 17)
+            addingToSelected(array: &hs)
         }
         
         
@@ -218,8 +208,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
            
             
             alert.dismiss(animated: true, completion: nil)
-           internetCheck.invalidate()
-            print(chatham.count)
+           
+            
+            removeAfterConnected(array: &lynnewood, remove: 16)
+                       
+            removeAfterConnected(array: &chatham, remove: 15)
+                    
+            removeAfterConnected(array: &chestnutwold, remove: 8)
+                    
+            removeAfterConnected(array: &coopertown, remove: 5)
+
+            removeAfterConnected(array: &manoa, remove: 18)
+                                    
+            removeAfterConnected(array: &ms, remove: 20)
+
+            removeAfterConnected(array: &hs, remove: 17)
+            
+            
+            internetCheck.invalidate()
+            
         }
         //
            conCount += 1
@@ -289,19 +296,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                    else if toArray == "hs"
                     {hs.append(contentsOf: names)}
                     
-                    //print("\(toArray)")
-                     
-                   //print("names are \(names)")
+                
                     
                      
                 } catch {
                     print("error getting teacher names")
                 }
                 
-                // this is the String of the data.
-                // print(String(data: data, encoding: .utf8)!)
-                   // print(result)
-                 // do stuff with the data
+                
                  
              }
             

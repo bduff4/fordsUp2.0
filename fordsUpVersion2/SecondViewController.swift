@@ -47,27 +47,16 @@ class SecondViewController: UIViewController
         var wrongPoints = 0
         var correctPoints = 0
         var checkDone = false
-        var count = 60 // change for time
-        let gameTime = 60 // change for time
+        var count = 5 // change for time
+        let gameTime = 5 // change for time
         var numGuesses = -1
         
     @IBOutlet weak var redView: UIView!
     
-    /*
-    //public schools in haverford township
-    var chathamParkTeachers = ["", "", ""]
-    var chestnutwoldTeachers = ["", "", ""]
-    var coopertownTeachers = ["", "", ""]
-    var lynnewoodTeachers = ["", "", ""]
-    var manoaTeachers = ["", "", ""]
-    var middleSchoolTeachers = ["Collins", "Kim", "Finn"]
-    var highSchoolTeachers = ["Smith", "Wells", "Stewart"]
-    */
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-      
+        print(lynnewood.count)
         
         
         redView.layer.cornerRadius = 10
@@ -157,7 +146,7 @@ class SecondViewController: UIViewController
         {
             timer?.invalidate()
             endStuff()
-            count = 60 //change this to match var count. NOTE: dont add parameters to the function, you cant change them in the countdownTimer
+            count = 5 //change this to match var count. NOTE: dont add parameters to the function, you cant change them in the countdownTimer
         }
     }
     
@@ -195,8 +184,6 @@ class SecondViewController: UIViewController
                 self.gameLabel.text = "-1"
                 numGuesses += 1
                 print("num guess \(numGuesses+1)")
-//                numGuesses += 1
-//                print("num guess \(numGuesses)")
                 // this makes stuff happen once when phone is tilted up
             }
             
@@ -256,9 +243,6 @@ class SecondViewController: UIViewController
                 self.gameLabel.text = "+1"
                 numGuesses += 1
                 print("num guess \(numGuesses+1)")
-                //  i += 1
-//                numGuesses += 1
-//                print("num guess \(numGuesses)")
                 // this makes stuff happen once when phone is tilted down
             }
         }
@@ -286,8 +270,6 @@ class SecondViewController: UIViewController
                 checkDone = true
                 timer2?.invalidate() //stops the check if phone is in correct position
                 countdownTimer() //timer
-               //print(i)
-               //print(currentCat)
                 redView.backgroundColor = UIColor.blue
                self.gameLabel.text = ("Mr/Ms/Mrs/Dr. \n \(currentCat[0])")
                 
@@ -298,23 +280,10 @@ class SecondViewController: UIViewController
                 
                 //the method below happens the frame before the game starts
                 self.timerLabel.text = "\(count)"
-              /*  DispatchQueue.main.asyncAfter(deadline: .now() + 59) // change to how many seconds game will last - 1
-                    {
-                        //this is what happens when the game ends (after 30 seconds)
-                        self.endStuff()
-                        
-                    }
-                */
                 timerFunc()
                 }
     }
     
-    
-    
-    @IBAction func test(_ sender: UIButton)
-    {
-    print("test")
-    }
     
   func endStuff()
     {
