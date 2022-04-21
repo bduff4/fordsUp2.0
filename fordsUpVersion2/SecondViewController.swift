@@ -166,7 +166,7 @@ class SecondViewController: UIViewController
             endStuff()
      }
         let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
-
+//let roll = 25
         
         let r: String = String(format: "%.2f", roll) //in case of debugging
         

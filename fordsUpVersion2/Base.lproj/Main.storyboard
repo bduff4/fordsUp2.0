@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="MDq-A9-Okv">
-                                <rect key="frame" x="20" y="20" width="335" height="627"/>
+                                <rect key="frame" x="20" y="116" width="335" height="531"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwQ-dF-caQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="192"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                         <state key="normal" title="Start!"/>
                                         <connections>
@@ -28,34 +28,37 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hoD-an-ZOP">
-                                        <rect key="frame" x="0.0" y="217" width="335" height="410"/>
+                                        <rect key="frame" x="0.0" y="95" width="335" height="436"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="436" id="dzg-w7-vbf"/>
+                                        </constraints>
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="myCell" textLabel="fCb-ZN-YGg" detailTextLabel="kMU-IB-f4E" imageView="kU3-vE-jxl" style="IBUITableViewCellStyleSubtitle" id="Ffi-my-nfk">
-                                                <rect key="frame" x="16" y="49.5" width="303" height="55.5"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="myCell" textLabel="fCb-ZN-YGg" detailTextLabel="kMU-IB-f4E" imageView="kU3-vE-jxl" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="Ffi-my-nfk">
+                                                <rect key="frame" x="16" y="49.5" width="303" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ffi-my-nfk" id="ewX-tm-dBh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="55.5"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ffi-my-nfk" id="ewX-tm-dBh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fCb-ZN-YGg">
-                                                            <rect key="frame" x="87" y="10" width="33" height="20.5"/>
+                                                            <rect key="frame" x="92" y="10" width="33" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMU-IB-f4E">
-                                                            <rect key="frame" x="87" y="31.5" width="44" height="14.5"/>
+                                                            <rect key="frame" x="92" y="33.5" width="44" height="14.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="lynnewood" id="kU3-vE-jxl">
-                                                            <rect key="frame" x="16" y="0.0" width="56" height="55.5"/>
+                                                            <rect key="frame" x="16" y="0.0" width="61" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </imageView>
                                                     </subviews>
@@ -65,25 +68,19 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="hoD-an-ZOP" secondAttribute="bottom" id="Py3-cm-3D4"/>
-                                    <constraint firstItem="hoD-an-ZOP" firstAttribute="leading" secondItem="MDq-A9-Okv" secondAttribute="leading" id="fE4-un-QL9"/>
-                                    <constraint firstAttribute="trailing" secondItem="hoD-an-ZOP" secondAttribute="trailing" id="u5a-wY-en2"/>
-                                    <constraint firstItem="hoD-an-ZOP" firstAttribute="top" secondItem="GwQ-dF-caQ" secondAttribute="bottom" constant="25" id="vDW-5u-PTv"/>
-                                </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="uvE-9H-L90"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MDq-A9-Okv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="08x-mL-P6u"/>
-                            <constraint firstItem="MDq-A9-Okv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0Zr-gk-CEC"/>
-                            <constraint firstItem="MDq-A9-Okv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="1ix-Fj-8bK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MDq-A9-Okv" secondAttribute="bottom" constant="20" id="Gcd-iy-6y2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MDq-A9-Okv" secondAttribute="trailing" constant="20" id="M9l-ys-uZG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MDq-A9-Okv" secondAttribute="bottom" constant="20" id="oS0-0n-OYc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MDq-A9-Okv" secondAttribute="trailing" constant="20" id="qr6-Sz-tw2"/>
-                            <constraint firstItem="MDq-A9-Okv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y6B-7W-UiY"/>
+                            <constraint firstItem="MDq-A9-Okv" firstAttribute="leading" secondItem="uvE-9H-L90" secondAttribute="leading" constant="20" id="08x-mL-P6u"/>
+                            <constraint firstItem="MDq-A9-Okv" firstAttribute="top" secondItem="uvE-9H-L90" secondAttribute="top" constant="20" id="0Zr-gk-CEC"/>
+                            <constraint firstItem="MDq-A9-Okv" firstAttribute="top" secondItem="uvE-9H-L90" secondAttribute="top" constant="20" id="1ix-Fj-8bK"/>
+                            <constraint firstItem="uvE-9H-L90" firstAttribute="bottom" secondItem="MDq-A9-Okv" secondAttribute="bottom" constant="20" id="Gcd-iy-6y2"/>
+                            <constraint firstItem="uvE-9H-L90" firstAttribute="trailing" secondItem="MDq-A9-Okv" secondAttribute="trailing" constant="20" id="M9l-ys-uZG"/>
+                            <constraint firstItem="uvE-9H-L90" firstAttribute="bottom" secondItem="MDq-A9-Okv" secondAttribute="bottom" constant="20" id="oS0-0n-OYc"/>
+                            <constraint firstItem="uvE-9H-L90" firstAttribute="trailing" secondItem="MDq-A9-Okv" secondAttribute="trailing" constant="20" id="qr6-Sz-tw2"/>
+                            <constraint firstItem="MDq-A9-Okv" firstAttribute="leading" secondItem="uvE-9H-L90" secondAttribute="leading" constant="20" id="y6B-7W-UiY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Fords Up" id="tor-pf-fuY"/>
@@ -96,7 +93,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" id="GkI-7z-Ynw">
                     <rect key="frame" x="0.0" y="0.0" width="288.5" height="110"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <viewLayoutGuide key="safeArea" id="Gxm-ZL-Jvd"/>
+                    <viewLayoutGuide key="safeArea" id="iK5-ft-hyp"/>
                 </stackView>
             </objects>
             <point key="canvasLocation" x="1071.2" y="71.514242878560722"/>
@@ -154,17 +151,17 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Z38-sF-Ocv"/>
+                        <viewLayoutGuide key="safeArea" id="DgX-9k-u4Q"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="bottom" secondItem="MPT-sg-MzQ" secondAttribute="bottom" constant="302" id="9LU-Sh-zB5"/>
-                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="bottom" secondItem="NaV-8c-Zoa" secondAttribute="bottom" constant="10" id="PKt-SG-gzO"/>
-                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="leading" secondItem="Z38-sF-Ocv" secondAttribute="leading" constant="12" id="YKG-jn-T2H"/>
-                            <constraint firstItem="MPT-sg-MzQ" firstAttribute="leading" secondItem="Z38-sF-Ocv" secondAttribute="leading" constant="202" id="fMv-5n-B8j"/>
-                            <constraint firstItem="Z38-sF-Ocv" firstAttribute="trailing" secondItem="NaV-8c-Zoa" secondAttribute="trailing" constant="12" id="kJf-pT-Lar"/>
-                            <constraint firstItem="MPT-sg-MzQ" firstAttribute="top" secondItem="Z38-sF-Ocv" secondAttribute="top" constant="308" id="rY5-To-RaA"/>
-                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="top" secondItem="Z38-sF-Ocv" secondAttribute="top" constant="10" id="tKu-V4-2SX"/>
-                            <constraint firstAttribute="trailing" secondItem="MPT-sg-MzQ" secondAttribute="trailing" constant="-35" id="ysE-gd-Tkw"/>
+                            <constraint firstItem="DgX-9k-u4Q" firstAttribute="bottom" secondItem="MPT-sg-MzQ" secondAttribute="bottom" constant="302" id="9LU-Sh-zB5"/>
+                            <constraint firstItem="DgX-9k-u4Q" firstAttribute="bottom" secondItem="NaV-8c-Zoa" secondAttribute="bottom" constant="10" id="PKt-SG-gzO"/>
+                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="leading" secondItem="DgX-9k-u4Q" secondAttribute="leading" constant="12" id="YKG-jn-T2H"/>
+                            <constraint firstItem="MPT-sg-MzQ" firstAttribute="leading" secondItem="DgX-9k-u4Q" secondAttribute="leading" constant="202" id="fMv-5n-B8j"/>
+                            <constraint firstItem="DgX-9k-u4Q" firstAttribute="trailing" secondItem="NaV-8c-Zoa" secondAttribute="trailing" constant="12" id="kJf-pT-Lar"/>
+                            <constraint firstItem="MPT-sg-MzQ" firstAttribute="top" secondItem="DgX-9k-u4Q" secondAttribute="top" constant="308" id="rY5-To-RaA"/>
+                            <constraint firstItem="NaV-8c-Zoa" firstAttribute="top" secondItem="DgX-9k-u4Q" secondAttribute="top" constant="10" id="tKu-V4-2SX"/>
+                            <constraint firstItem="DgX-9k-u4Q" firstAttribute="trailing" secondItem="MPT-sg-MzQ" secondAttribute="trailing" constant="-35" id="ysE-gd-Tkw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEj-Gv-gss"/>
@@ -204,8 +201,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ekj-la-Ass"/>
-        <segue reference="1k2-SH-LJa"/>
+        <segue reference="lhK-Ii-gxP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="lynnewood" width="200" height="199"/>

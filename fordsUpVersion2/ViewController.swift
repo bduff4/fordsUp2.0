@@ -46,22 +46,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.myTableView.contentInset = UIEdgeInsets(top: -36, left: 0, bottom: 0, right: 0);
+
         myTableView.delegate = self
         myTableView.dataSource = self
         startButton.isEnabled = false
         startButton.tintColor = UIColor.systemBlue
         myTableView.sectionIndexColor = UIColor.blue
-       
-        vcAppeared += 1
-    
-        present(alert, animated: true, completion: nil)
+        myTableView.contentInsetAdjustmentBehavior = .never
         myTableView.isScrollEnabled = false
         
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+        vcAppeared += 1
         if vcAppeared == 1 //first time vc appears
         {
         
             let lynnewoodDeck = Deck(name: "Lynnewood", description: "", imageName: "lynnewood")
-        myDecks.append(lynnewoodDeck)
+            myDecks.append(lynnewoodDeck)
         
         let  chathamDeck = Deck(name: "Chatham", description: "", imageName: "chatham")
         myDecks.append(chathamDeck)
@@ -131,11 +135,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    let minRowHeight: CGFloat = 55.0
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tHeight = (myTableView.frame.height) - 35
+            let temp = tHeight / CGFloat(myDecks.count)
+            return temp > minRowHeight ? temp : minRowHeight
+    }
+    
+    
+    
+    
     func addingToSelected(array: inout [String])
     {
         currentCat.removeAll()
         currentCat.append(contentsOf: array)
-        print(array.first)
+        print(array.first!)
         
         //print(array)
     }
@@ -144,7 +159,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
 
             array.removeSubrange(0...remove)
-        print(array.first)
+        print(array.first!)
     }
     
     
