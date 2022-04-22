@@ -29,7 +29,7 @@ var connected = false
 var conCount = 0
 var conCount2 = 0
 var sel = -1
-
+var test = 0
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {

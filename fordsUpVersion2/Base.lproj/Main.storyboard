@@ -4,10 +4,47 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Welcome to Fords Up!-->
+        <scene sceneID="Y07-EL-ZSF">
+            <objects>
+                <viewController id="4Xq-vS-p1M" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QnO-cS-vTM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIh-Ut-bCM">
+                                <rect key="frame" x="15" y="111" width="345" height="507"/>
+                                <mutableString key="text">This is a game inspired by the popular “Heads Up”, where a prompt is given on a device and you must guess what it is with the help of other people. Here are the steps to play. 
+1. Choose your category. The current categories are all Haverford teachers. 
+2. Place your device on your forehead after the timer counts down.
+3. Don’t look! Have your friends describe whatever teacher is on the screen. If you know the teacher, tilt your device down. If not, tilt your device up. You will feel a vibration if done correctly. 
+4. After 1 minute, see how many teachers you got correct!
+</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hlu-ps-GNC"/>
+                        <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZIh-Ut-bCM" firstAttribute="leading" secondItem="hlu-ps-GNC" secondAttribute="leading" constant="15" id="B9z-jO-WSa"/>
+                            <constraint firstItem="hlu-ps-GNC" firstAttribute="bottom" secondItem="ZIh-Ut-bCM" secondAttribute="bottom" id="WUu-Zm-YuH"/>
+                            <constraint firstItem="hlu-ps-GNC" firstAttribute="trailing" secondItem="ZIh-Ut-bCM" secondAttribute="trailing" constant="15" id="pPW-ZB-fLb"/>
+                            <constraint firstItem="ZIh-Ut-bCM" firstAttribute="top" secondItem="hlu-ps-GNC" secondAttribute="top" constant="15" id="ycf-m6-Asi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome to Fords Up!" id="Rid-0o-eYk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zV6-fY-CsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309.5999999999999" y="-710.19490254872574"/>
+        </scene>
         <!--Fords Up-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,10 +54,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="MDq-A9-Okv">
-                                <rect key="frame" x="20" y="116" width="335" height="531"/>
+                                <rect key="frame" x="20" y="116" width="335" height="482"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwQ-dF-caQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                         <state key="normal" title="Start!"/>
                                         <connections>
@@ -28,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hoD-an-ZOP">
-                                        <rect key="frame" x="0.0" y="95" width="335" height="436"/>
+                                        <rect key="frame" x="0.0" y="46" width="335" height="436"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="436" id="dzg-w7-vbf"/>
@@ -68,6 +105,16 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hoD-an-ZOP" secondAttribute="trailing" id="03t-4E-DDm"/>
+                                    <constraint firstAttribute="bottom" secondItem="hoD-an-ZOP" secondAttribute="bottom" id="7bA-eV-53l"/>
+                                    <constraint firstItem="GwQ-dF-caQ" firstAttribute="leading" secondItem="MDq-A9-Okv" secondAttribute="leading" id="Ab5-LO-g9g"/>
+                                    <constraint firstAttribute="trailing" secondItem="GwQ-dF-caQ" secondAttribute="trailing" id="B3h-eh-QMX"/>
+                                    <constraint firstItem="hoD-an-ZOP" firstAttribute="top" secondItem="GwQ-dF-caQ" secondAttribute="bottom" constant="25" id="RUi-3c-fQt"/>
+                                    <constraint firstItem="hoD-an-ZOP" firstAttribute="leading" secondItem="MDq-A9-Okv" secondAttribute="leading" id="YBc-cV-a5l"/>
+                                    <constraint firstItem="GwQ-dF-caQ" firstAttribute="top" secondItem="MDq-A9-Okv" secondAttribute="top" id="lOo-6u-nO9"/>
+                                    <constraint firstItem="hoD-an-ZOP" firstAttribute="top" secondItem="GwQ-dF-caQ" secondAttribute="bottom" constant="25" id="u9T-Sa-14Y"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uvE-9H-L90"/>
@@ -83,7 +130,16 @@
                             <constraint firstItem="MDq-A9-Okv" firstAttribute="leading" secondItem="uvE-9H-L90" secondAttribute="leading" constant="20" id="y6B-7W-UiY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Fords Up" id="tor-pf-fuY"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Fords Up" id="tor-pf-fuY">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1xf-0D-UKz">
+                            <imageReference key="image" image="info.circle" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <segue destination="4Xq-vS-p1M" kind="show" id="77L-LE-UvX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myTableView" destination="hoD-an-ZOP" id="Q8b-UY-gTq"/>
                         <outlet property="startButton" destination="GwQ-dF-caQ" id="ZMc-oG-Qc1"/>
@@ -147,7 +203,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Play again"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="1k2-SH-LJa"/>
+                                    <action selector="dismissView:" destination="1Q0-2c-wCX" eventType="touchUpInside" id="rvf-Ia-AVh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -200,10 +256,8 @@
             <point key="canvasLocation" x="132" y="71.514242878560722"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lhK-Ii-gxP"/>
-    </inferredMetricsTieBreakers>
     <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="lynnewood" width="200" height="199"/>
     </resources>
 </document>

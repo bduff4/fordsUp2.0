@@ -27,6 +27,8 @@ class SecondViewController: UIViewController
     
     var i = 0
     
+    
+    
     @IBOutlet weak var gameLabel: UILabel!
     
     
@@ -49,15 +51,17 @@ class SecondViewController: UIViewController
         var checkDone = false
         var count = 5 // change for time
         let gameTime = 5 // change for time
+        let countConstant = 5 //change for time
         var numGuesses = -1
         
+    
+    
     @IBOutlet weak var redView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         print(lynnewood.count)
-        
         
         redView.layer.cornerRadius = 10
         
@@ -73,17 +77,6 @@ class SecondViewController: UIViewController
         motion.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
         
         self.timerLabel?.text = "3"
-        
-      //remove 2 below
-       /* currentCat.removeAll()
-        currentCat.append(contentsOf: ["1", "2", "3", "4", "5"])
-        */
-        
-        //currentCat.append(contentsOf: hs) // lynnewood for debugging, just put in whatever category it is, this is going to need a lot if if else statements
-        //sike
-        
-
-    
         
         for j in 0..<currentCat.count
         {
@@ -146,7 +139,7 @@ class SecondViewController: UIViewController
         {
             timer?.invalidate()
             endStuff()
-            count = 5 //change this to match var count. NOTE: dont add parameters to the function, you cant change them in the countdownTimer
+            count = countConstant //change this to match var count. NOTE: dont add parameters to the function, you cant change them in the countdownTimer
         }
     }
     
@@ -166,7 +159,7 @@ class SecondViewController: UIViewController
             endStuff()
      }
         let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
-//let roll = 25
+        //let roll = 25
         
         let r: String = String(format: "%.2f", roll) //in case of debugging
         
@@ -283,6 +276,16 @@ class SecondViewController: UIViewController
                 timerFunc()
                 }
     }
+    //present modally
+    //fulslcreen
+    //same as destination
+    
+    @IBAction func dismissView(_ sender: UIButton)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     
   func endStuff()
