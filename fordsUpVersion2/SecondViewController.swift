@@ -14,30 +14,21 @@ import SwiftSoup
 
 class SecondViewController: UIViewController
 {
-    
+ let motion = CMMotionManager()
     var counter = 3
-           
     var timeLaunched: Double = 0
-    
     var gameTimer = Timer()
-    
     var gyroTimer: Timer?
-    
     var timerBool = false
-    
+
     var i = 0
     
+    @IBOutlet weak var textView: UITextView!
     
     
     @IBOutlet weak var gameLabel: UILabel!
-    
-    
     @IBOutlet weak var timerLabel: UILabel!
-    
     @IBOutlet weak var playAgain: UIButton!
-    
-    
-    let motion = CMMotionManager()
         
         let h = 0
         var timer: Timer?
@@ -53,25 +44,30 @@ class SecondViewController: UIViewController
         let gameTime = 5 // change for time
         let countConstant = 5 //change for time
         var numGuesses = -1
-        
-    
+        var wrongArr: [String] = []
+        var corrArr: [String] = []
+    var guessArr: [String] = []
     
     @IBOutlet weak var redView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        print(lynnewood.count)
+        print("count is \(currentCat.count)")
         
         redView.layer.cornerRadius = 10
+        textView.layer.cornerRadius = 10
         
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         timerLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-       
+        textView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
+        
+        
         playAgain.bringSubviewToFront(self.view)
        
         playAgain.isHidden = true
+        textView.isHidden = true
         print("start")
        
         motion.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
@@ -91,15 +87,8 @@ class SecondViewController: UIViewController
             
             
         }
-        
-        
-        
-        
-        //fix
        currentCat.shuffle()
         
-        
-        //game starts now
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
@@ -116,7 +105,6 @@ class SecondViewController: UIViewController
         {
             self.timerLabel?.text = ""
             self.gameLabel?.text = "Place your phone on your forehead"
-            print("cat guess \(currentCat.count)")
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
     
@@ -176,6 +164,8 @@ class SecondViewController: UIViewController
                 vibrate()
                 self.gameLabel.text = "-1"
                 numGuesses += 1
+                wrongArr.append(currentCat[i-1])
+                guessArr.append(currentCat[i-1])
                 print("num guess \(numGuesses+1)")
                 // this makes stuff happen once when phone is tilted up
             }
@@ -189,7 +179,8 @@ class SecondViewController: UIViewController
             redView.backgroundColor = UIColor.blue
             correct = 0
             wrong = 0
-           
+            print("correct \(corrArr)")
+            print("wrong \(wrongArr)")
             
             if numGuesses == currentCat.count-1
             {
@@ -200,24 +191,13 @@ class SecondViewController: UIViewController
             else if numGuesses < currentCat.count
             {
            
-                
                 normal += 1
                 if normal == 1
                 {
-                   
-                   
-                   
                     self.gameLabel.text = ("Mr/Ms/Mrs/Dr.\n \(currentCat[i])") //change text to word name
                     i += 1
-                    
-                    
                 }
             }
-            
-            
-            
-            
-            
             
         }
         
@@ -235,6 +215,8 @@ class SecondViewController: UIViewController
                 correctPoints += 1
                 self.gameLabel.text = "+1"
                 numGuesses += 1
+                corrArr.append(currentCat[i-1])
+                guessArr.append(currentCat[i-1])
                 print("num guess \(numGuesses+1)")
                 // this makes stuff happen once when phone is tilted down
             }
@@ -265,12 +247,7 @@ class SecondViewController: UIViewController
                 countdownTimer() //timer
                 redView.backgroundColor = UIColor.blue
                self.gameLabel.text = ("Mr/Ms/Mrs/Dr. \n \(currentCat[0])")
-                
-                
-                
-                
-                
-                
+               vibrate()
                 //the method below happens the frame before the game starts
                 self.timerLabel.text = "\(count)"
                 timerFunc()
@@ -296,6 +273,16 @@ class SecondViewController: UIViewController
         self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
         self.timerLabel?.text = ""
         self.playAgain.isHidden = false
+        self.textView.isHidden = false
+        
+        if guessArr.isEmpty == false
+        {
+        for j in 0...guessArr.count-1
+        {
+            textView.text += "\(guessArr[j])\n"
+        }
+        }
+        
         self.vibrate()
         self.vibrate()
     }

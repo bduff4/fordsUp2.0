@@ -19,12 +19,12 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIh-Ut-bCM">
                                 <rect key="frame" x="15" y="111" width="345" height="507"/>
-                                <mutableString key="text">This is a game inspired by the popular “Heads Up”, where a prompt is given on a device and you must guess what it is with the help of other people. Here are the steps to play. 
+                                <string key="text">This is a game inspired by the popular “Heads Up”, where a prompt is given on a device and you must guess what it is with the help of other people. Here are the steps to play. 
 1. Choose your category. The current categories are all Haverford teachers. 
 2. Place your device on your forehead after the timer counts down.
 3. Don’t look! Have your friends describe whatever teacher is on the screen. If you know the teacher, tilt your device down. If not, tilt your device up. You will feel a vibration if done correctly. 
 4. After 1 minute, see how many teachers you got correct!
-</mutableString>
+</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -181,6 +181,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-eS-bvT">
+                                        <rect key="frame" x="91" y="407" width="169" height="311"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.38940457037970538" blue="0.80731848514441285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
@@ -225,6 +233,7 @@
                         <outlet property="gameLabel" destination="y16-yr-ECi" id="3vv-pT-W2C"/>
                         <outlet property="playAgain" destination="MPT-sg-MzQ" id="Q6R-8C-54h"/>
                         <outlet property="redView" destination="NaV-8c-Zoa" id="fQP-aC-PkP"/>
+                        <outlet property="textView" destination="9CJ-eS-bvT" id="t4F-jg-hyN"/>
                         <outlet property="timerLabel" destination="IBE-c5-5o2" id="ymS-uH-MET"/>
                     </connections>
                 </viewController>

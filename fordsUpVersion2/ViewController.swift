@@ -85,6 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let  hsDeck = Deck(name: "Haverford High School", description: "", imageName: "hs")
         myDecks.append(hsDeck)
         
+            internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
         }
         
     }
@@ -105,11 +106,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         parse(urlString: "https://www.haverford.k12.pa.us/home-high-school/directory",  toArray: "hs")
         
-        internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
+        
         }
     }
     
-    
+    ////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myDecks.count
     }
@@ -144,8 +145,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
-    
     func addingToSelected(array: inout [String])
     {
         currentCat.removeAll()
@@ -161,11 +160,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             array.removeSubrange(0...remove)
         print(array.first!)
     }
-    
-    
-    
-    
-    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -212,7 +206,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
     }
-    
+    ///////////////////////////////////////////
     
     @objc func waitForInternet()
     {
@@ -328,22 +322,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 
-    
-    
-    
-    
+
 }
-    /*
-     for i in 0...lynnewood.count-1
-     {
- lynnewood[i] = lynnewood[i].replacingOccurrences(of: "\\", with: "")
- lynnewood[i] = lynnewood[i].replacingOccurrences(of: "D\'", with: "D'")
-//chathum[i] = chathum[i].replacingOccurrences(of: "M", with: "D'")
-        
-     }
-     print("lynnewood words are \(lynnewood)")
- }
-     */
-    
-
-
