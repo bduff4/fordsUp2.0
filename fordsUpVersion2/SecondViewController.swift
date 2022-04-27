@@ -135,8 +135,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let currentDeck = Decks[indexPath.row]
        
         cell.textLabel?.text = currentDeck.name
+        if wrongArr.contains(currentDeck.name)
+        {
+            cell.backgroundColor = UIColor.red
+        }
         
-        
+        else
+        {
+            cell.backgroundColor = UIColor.green
+        }
         
         
         
@@ -188,7 +195,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
         //let roll = 25
         
-        let r: String = String(format: "%.2f", roll) //in case of debugging
+        //let r: String = String(format: "%.2f", roll) //in case of debugging
         
         
         //tilt up
@@ -275,7 +282,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @objc func check()
     {
-       let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi) ?? -1
+        let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
         
         
         
@@ -323,7 +330,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
            
             Decks.append(Deck(name: "\(guessArr[j])"))
             tableView.reloadData()
-           // tableView.cellForRow(at: tableView.indexPathsForVisibleRows![j])?.backgroundColor = UIColor.green
+            
+            // tableView.cellForRow(at: tableView.indexPathsForVisibleRows![j])?.backgroundColor = UIColor.green
             
         
             
