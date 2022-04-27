@@ -8,7 +8,7 @@
 import Foundation
 struct Deck {
     var name: String
-    var description: String
-    var imageName: String
+    var description: String?
+    var imageName: String?
     
 }

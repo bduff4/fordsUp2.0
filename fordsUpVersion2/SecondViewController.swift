@@ -12,7 +12,7 @@ import AudioToolbox
 import SwiftSoup
 
 
-class SecondViewController: UIViewController
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
  let motion = CMMotionManager()
     var counter = 3
@@ -23,7 +23,7 @@ class SecondViewController: UIViewController
 
     var i = 0
     
-    @IBOutlet weak var textView: UITextView!
+
     
     
     @IBOutlet weak var gameLabel: UILabel!
@@ -46,28 +46,39 @@ class SecondViewController: UIViewController
         var numGuesses = -1
         var wrongArr: [String] = []
         var corrArr: [String] = []
-    var guessArr: [String] = []
+        var guessArr: [String] = []
     
     @IBOutlet weak var redView: UIView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    var Decks: [Deck] = []
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.sectionIndexColor = UIColor.blue
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.isScrollEnabled = true
+        tableView.allowsSelection = false
+        tableView.isHidden = true
+        tableView.bounces = false
         print("count is \(currentCat.count)")
         
         redView.layer.cornerRadius = 10
-        textView.layer.cornerRadius = 10
+        tableView.layer.cornerRadius = 10
         
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         timerLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-        textView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
+        tableView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         
         
         playAgain.bringSubviewToFront(self.view)
        
         playAgain.isHidden = true
-        textView.isHidden = true
+        
         print("start")
        
         motion.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
@@ -111,6 +122,34 @@ class SecondViewController: UIViewController
     
     }
     
+    //////////////////////////////////////////////////////////////
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return guessArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+        
+        let currentDeck = Decks[indexPath.row]
+       
+        cell.textLabel?.text = currentDeck.name
+        
+        
+        
+        
+        
+        
+        
+        return cell
+        
+    }
+    
+    
+    ///////////////////////////////////////////////////
+    
+    
     override var prefersStatusBarHidden: Bool
     { return true }
 
@@ -121,7 +160,7 @@ class SecondViewController: UIViewController
         count -= 1
         timerLabel.text! = "\(count)"
         print(count)
-        
+    
         
         if count <= 0
         {
@@ -273,16 +312,27 @@ class SecondViewController: UIViewController
         self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
         self.timerLabel?.text = ""
         self.playAgain.isHidden = false
-        self.textView.isHidden = false
+        tableView.isHidden = false
+       
         
-        if guessArr.isEmpty == false
+        
+               if guessArr.isEmpty == false
         {
         for j in 0...guessArr.count-1
         {
-            textView.text += "\(guessArr[j])\n"
-        }
-        }
+           
+            Decks.append(Deck(name: "\(guessArr[j])"))
+            tableView.reloadData()
+           // tableView.cellForRow(at: tableView.indexPathsForVisibleRows![j])?.backgroundColor = UIColor.green
+            
         
+            
+            
+        }
+        }
+        tableView.reloadData()
+        //print("table view cells \(String(describing: tableView.indexPathsForVisibleRows![0]))")
+
         self.vibrate()
         self.vibrate()
     }

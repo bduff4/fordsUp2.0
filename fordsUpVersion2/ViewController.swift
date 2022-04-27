@@ -122,7 +122,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.textLabel?.text = currentDeck.name
         cell.detailTextLabel?.text = currentDeck.description
-        cell.imageView?.image = UIImage(named: currentDeck.imageName)
+        cell.imageView?.image = UIImage(named: currentDeck.imageName!)
         cell.imageView?.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         
         
