@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "SwiftSoup",
-        "repositoryURL": "https://github.com/scinfu/SwiftSoup.git",
+        "repositoryURL": "https://github.com/scinfu/SwiftSoup",
         "state": {
-          "branch": "master",
-          "revision": "13ba661fd1146967270fca92ce8195b223631436",
-          "version": null
+          "branch": null,
+          "revision": "41e7c263fb8c277e980ebcb9b0b5f6031d3d4886",
+          "version": "2.4.2"
         }
       }
     ]
