@@ -141,7 +141,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tHeight = (myTableView.frame.height) - 35
             let temp = tHeight / CGFloat(myDecks.count)
-            return temp > minRowHeight ? temp : minRowHeight
+            return temp //> minRowHeight ? temp : minRowHeight
     }
     
     

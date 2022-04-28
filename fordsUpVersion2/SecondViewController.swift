@@ -62,7 +62,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.isScrollEnabled = true
         tableView.allowsSelection = false
-        tableView.isHidden = true
+      
+        
+        tableView.isHidden = false
+
+        
+        
         tableView.bounces = false
         print("count is \(currentCat.count)")
         
@@ -74,6 +79,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         tableView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         
+        tableView.frame = CGRect(x: (100), y: 100, width: 233, height: 173)
         
         playAgain.bringSubviewToFront(self.view)
        
@@ -111,15 +117,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.timerLabel?.text = "1"
         }
     
-        
+       /*
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0)
         {
             self.timerLabel?.text = ""
             self.gameLabel?.text = "Place your phone on your forehead"
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
-    
-    
+        */
+
     }
     
     //////////////////////////////////////////////////////////////
@@ -133,6 +139,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         
         let currentDeck = Decks[indexPath.row]
+        
        
         cell.textLabel?.text = currentDeck.name
         if wrongArr.contains(currentDeck.name)
@@ -144,9 +151,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         {
             cell.backgroundColor = UIColor.green
         }
-        
-        
-        
         
         
         return cell
@@ -283,7 +287,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc func check()
     {
         let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
-        
+       //let roll = 76
         
         
             if roll > 75 && roll < 97
@@ -320,8 +324,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.timerLabel?.text = ""
         self.playAgain.isHidden = false
         tableView.isHidden = false
-       
-        
         
                if guessArr.isEmpty == false
         {
@@ -330,10 +332,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
            
             Decks.append(Deck(name: "\(guessArr[j])"))
             tableView.reloadData()
-            
-            // tableView.cellForRow(at: tableView.indexPathsForVisibleRows![j])?.backgroundColor = UIColor.green
-            
-        
             
             
         }
