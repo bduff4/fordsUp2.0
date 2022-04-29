@@ -79,7 +79,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         tableView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         
-        tableView.frame = CGRect(x: (100), y: 100, width: 233, height: 173)
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        let rvFrameW = Double(redView.frame.width)
+        let rvFrameH = Double(redView.frame.height)
+        let tvFH = Double(rvFrameH/2.77682403)
+        let tvFW = Double(rvFrameW/2.05202312)
+        
+        let num = Double((rvFrameW-tvFH)/2)
+        let num2 = Double((tvFH*2)+(screenSize.height-rvFrameH)/2)
+        print(num)
+        print(num2)
+       
+       //10
+        
+        tableView.frame = CGRect(x:num, y: (num2), width: tvFH, height:tvFW)
         
         playAgain.bringSubviewToFront(self.view)
        
