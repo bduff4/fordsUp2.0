@@ -12,6 +12,12 @@ import AudioToolbox
 import SwiftSoup
 
 
+var wrongPoints = 0
+var correctPoints = 0
+var wrongArr: [String] = []
+var corrArr: [String] = []
+var guessArr: [String] = []
+
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
  let motion = CMMotionManager()
@@ -37,16 +43,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var correct = 0
         var wrong = 0
         var normal = 0
-        var wrongPoints = 0
-        var correctPoints = 0
+       
         var checkDone = false
         var count = 5 // change for time
         let gameTime = 5 // change for time
         let countConstant = 5 //change for time
         var numGuesses = -1
-        var wrongArr: [String] = []
-        var corrArr: [String] = []
-        var guessArr: [String] = []
+       
     
     @IBOutlet weak var redView: UIView!
     
@@ -77,9 +80,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         timerLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-        tableView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
+       // tableView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         
-        
+     /*
         let screenSize: CGRect = UIScreen.main.bounds
         
         let rvFrameW = Double(redView.frame.width)
@@ -96,7 +99,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //in case of bug, x is 61, y is 476
         //x is (redview width - tableview height)/2
         //y is 
-        tableView.frame = CGRect(x:num, y: (num2), width: tvFH, height:tvFW)
+        tableView.frame = CGRect(x:num, y: (num2), width: tvFH, height:tvFW)*/
+        
+        
         
         playAgain.bringSubviewToFront(self.view)
        
@@ -134,14 +139,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.timerLabel?.text = "1"
         }
     
-       /*
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0)
         {
             self.timerLabel?.text = ""
             self.gameLabel?.text = "Place your phone on your forehead"
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
-        */
+        
 
     }
     
