@@ -79,10 +79,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let  manoaDeck = Deck(name: "Manoa", description: "", imageName: "manoa")
         myDecks.append(manoaDeck)
         
-        let  msDeck = Deck(name: "Haverford Middle School", description: "", imageName: "ms")
+        let  msDeck = Deck(name: "HMS", description: "", imageName: "ms")
         myDecks.append(msDeck)
         
-        let  hsDeck = Deck(name: "Haverford High School", description: "", imageName: "hs")
+        let  hsDeck = Deck(name: "HHS", description: "", imageName: "hs")
         myDecks.append(hsDeck)
         
             internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)

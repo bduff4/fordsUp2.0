@@ -93,7 +93,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print(num2)
        
        //10
-        
+        //in case of bug, x is 61, y is 476
+        //x is (redview width - tableview height)/2
+        //y is 
         tableView.frame = CGRect(x:num, y: (num2), width: tvFH, height:tvFW)
         
         playAgain.bringSubviewToFront(self.view)
