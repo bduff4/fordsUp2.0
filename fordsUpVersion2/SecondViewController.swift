@@ -17,8 +17,9 @@ var correctPoints = 0
 var wrongArr: [String] = []
 var corrArr: [String] = []
 var guessArr: [String] = []
+var Decks: [Deck] = []
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class SecondViewController: UIViewController
 {
  let motion = CMMotionManager()
     var counter = 3
@@ -53,60 +54,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var redView: UIView!
     
-    @IBOutlet weak var tableView: UITableView!
-    var Decks: [Deck] = []
+   
+    
     
     override func viewDidLoad()
     {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.sectionIndexColor = UIColor.blue
-        tableView.contentInsetAdjustmentBehavior = .never
-        tableView.isScrollEnabled = true
-        tableView.allowsSelection = false
-      
         
-        tableView.isHidden = false
 
         
         
-        tableView.bounces = false
+        
         print("count is \(currentCat.count)")
         
         redView.layer.cornerRadius = 10
-        tableView.layer.cornerRadius = 10
+       
         
         gameLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
         timerLabel.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-        playAgain.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-       // tableView.transform = CGAffineTransform(rotationAngle: (-.pi/2))
-        
-     /*
-        let screenSize: CGRect = UIScreen.main.bounds
-        
-        let rvFrameW = Double(redView.frame.width)
-        let rvFrameH = Double(redView.frame.height)
-        let tvFH = Double(rvFrameH/2.77682403)
-        let tvFW = Double(rvFrameW/2.05202312)
-        
-        let num = Double((rvFrameW-tvFH)/2)
-        let num2 = Double((tvFH*2)+(screenSize.height-rvFrameH)/2)
-        print(num)
-        print(num2)
        
-       //10
-        //in case of bug, x is 61, y is 476
-        //x is (redview width - tableview height)/2
-        //y is 
-        tableView.frame = CGRect(x:num, y: (num2), width: tvFH, height:tvFW)*/
-        
-        
-        
-        playAgain.bringSubviewToFront(self.view)
-       
-        playAgain.isHidden = true
-        
+    
         print("start")
        
         motion.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
@@ -150,43 +116,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
-    //////////////////////////////////////////////////////////////
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return guessArr.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        
-        let currentDeck = Decks[indexPath.row]
-        
-       
-        cell.textLabel?.text = currentDeck.name
-        if wrongArr.contains(currentDeck.name)
-        {
-            cell.backgroundColor = UIColor.red
-        }
-        
-        else
-        {
-            cell.backgroundColor = UIColor.green
-        }
-        
-        
-        return cell
-        
-    }
-    
-    
-    ///////////////////////////////////////////////////
-    
-    
     override var prefersStatusBarHidden: Bool
     { return true }
 
-
+    
 
     @objc func countdown()
     {
@@ -328,51 +261,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //present modally
     //fulslcreen
     //same as destination
-    
-    @IBAction func dismissView(_ sender: UIButton)
-    {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    
-    
+   
+
   func endStuff()
     {
         self.timer?.invalidate()
         self.timer3?.invalidate() //countdown
+        //go to next view
+       print("end")
+        performSegue(withIdentifier: "toEnd", sender: nil)
         self.redView?.backgroundColor = UIColor.blue
-        self.gameLabel?.text = "Correct: \(correctPoints)\n Wrong: \(wrongPoints)"
-        self.timerLabel?.text = ""
-        self.playAgain.isHidden = false
-        tableView.isHidden = false
-        
-               if guessArr.isEmpty == false
-        {
-        for j in 0...guessArr.count-1
-        {
-           
-            Decks.append(Deck(name: "\(guessArr[j])"))
-            tableView.reloadData()
-            
-            
-        }
-        }
-        tableView.reloadData()
-        //print("table view cells \(String(describing: tableView.indexPathsForVisibleRows![0]))")
-
+    
         self.vibrate()
         self.vibrate()
     }
     
-
-    
-
 }
 
-/*
- self.navigationController?.popToRootViewController(animated: true)
 
-print("hit")
- */
 
