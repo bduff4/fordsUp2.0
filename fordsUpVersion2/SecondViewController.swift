@@ -342,7 +342,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.timer?.invalidate()
         self.timer3?.invalidate() //countdown
         self.redView?.backgroundColor = UIColor.blue
-        self.gameLabel?.text = "Correct: \(self.correctPoints)\n Wrong: \(self.wrongPoints)"
+        self.gameLabel?.text = "Correct: \(correctPoints)\n Wrong: \(wrongPoints)"
         self.timerLabel?.text = ""
         self.playAgain.isHidden = false
         tableView.isHidden = false
