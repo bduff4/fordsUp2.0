@@ -46,9 +46,9 @@ class SecondViewController: UIViewController
         var normal = 0
        
         var checkDone = false
-        var count = 5 // change for time
-        let gameTime = 5 // change for time
-        let countConstant = 5 //change for time
+        var count = 60 // change for time
+        let gameTime = 60 // change for time
+        let countConstant = 60 //change for time
         var numGuesses = -1
        
     
@@ -108,7 +108,8 @@ class SecondViewController: UIViewController
        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0)
         {
-            self.timerLabel?.text = ""
+            //remove self.timerLabel?.text = ""
+            self.timerLabel.textColor = self.redView.backgroundColor
             self.gameLabel?.text = "Place your phone on your forehead"
             self.timer2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.check)), userInfo: nil, repeats: true)
          }
@@ -170,6 +171,8 @@ class SecondViewController: UIViewController
                 self.gameLabel.text = "-1"
                 numGuesses += 1
                 wrongArr.append(currentCat[i-1])
+               
+                
                 guessArr.append(currentCat[i-1])
                 print("num guess \(numGuesses+1)")
                 // this makes stuff happen once when phone is tilted up
@@ -241,7 +244,7 @@ class SecondViewController: UIViewController
     
     @objc func check()
     {
-        let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
+       let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
        //let roll = 76
         
         
@@ -254,7 +257,9 @@ class SecondViewController: UIViewController
                self.gameLabel.text = ("Mr/Ms/Mrs/Dr. \n \(currentCat[0])")
                vibrate()
                 //the method below happens the frame before the game starts
+                self.timerLabel.textColor = UIColor.white
                 self.timerLabel.text = "\(count)"
+                
                 timerFunc()
                 }
     }
@@ -265,15 +270,43 @@ class SecondViewController: UIViewController
 
   func endStuff()
     {
+        /*
+        corrArr.append("one")
+        wrongArr.append("two")
+        corrArr.append("three")
+        wrongArr.append("four")
+        corrArr.append("five")
+        corrArr.append("six")
+        wrongArr.append("seven")
+        corrArr.append("eight")
+        wrongArr.append("nine")
+        corrArr.append("ten")
+      
+        
+        guessArr.append("one")
+        guessArr.append("two")
+        guessArr.append("three")
+        guessArr.append("four")
+        guessArr.append("five")
+        guessArr.append("six")
+        guessArr.append("seven")
+        guessArr.append("eight")
+        guessArr.append("nine")
+        guessArr.append("ten")
+        */
+        
+        
         self.timer?.invalidate()
         self.timer3?.invalidate() //countdown
-        //go to next view
-       print("end")
+        
+        self.vibrate()
+        self.vibrate()
+        
+        print("end")
         performSegue(withIdentifier: "toEnd", sender: nil)
+        //self.dismiss(animated: true, completion: nil)
         self.redView?.backgroundColor = UIColor.blue
-    
-        self.vibrate()
-        self.vibrate()
+
     }
     
 }

@@ -18,9 +18,12 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var label: UILabel!
     
+    var sVC = SecondViewController()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.cornerRadius = 10
@@ -79,6 +82,12 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tHeight = (tableView.frame.height) 
+            let temp = tHeight / CGFloat(Decks.count)
+            return temp //> minRowHeight ? temp : minRowHeight
+    }
+    
     
     ///////////////////////////////////////////////////
     
@@ -90,7 +99,7 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBAction func home(_ sender: UIButton)
     {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
     }
     
