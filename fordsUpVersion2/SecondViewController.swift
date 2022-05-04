@@ -35,7 +35,7 @@ class SecondViewController: UIViewController
     
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var playAgain: UIButton!
+    
         
         let h = 0
         var timer: Timer?
