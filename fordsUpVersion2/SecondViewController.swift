@@ -46,9 +46,9 @@ class SecondViewController: UIViewController
         var normal = 0
        
         var checkDone = false
-        var count = 10 // change for time
-        let gameTime = 10 // change for time
-        let countConstant = 10 //change for time
+        var count = 60 // change for time
+        let gameTime = 60 // change for time
+        let countConstant = 60 //change for time
         var numGuesses = -1
        
     
