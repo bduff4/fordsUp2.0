@@ -23,11 +23,11 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.cornerRadius = 10
-        tableView.sectionIndexColor = UIColor.blue
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.isScrollEnabled = true
         tableView.allowsSelection = false
@@ -35,6 +35,7 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
         tableView.bounces = false
         redView.layer.cornerRadius = 10
         tableView.layer.cornerRadius = 10
+        
         
         self.redView?.backgroundColor = UIColor.blue
         self.label?.text = "Correct: \(correctPoints)\n Wrong: \(wrongPoints)"
@@ -50,7 +51,7 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
             
         }
         }
-        tableView.reloadData()
+        //tableView.reloadData()
         
     }
     //////////////////////////////////////////////////////////////
@@ -84,8 +85,21 @@ class endGame: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tHeight = (tableView.frame.height) 
+            
+        
+        if Decks.count < 7
+        {
             let temp = tHeight / CGFloat(Decks.count)
-            return temp //> minRowHeight ? temp : minRowHeight
+            return temp
+            
+        }
+        
+        else
+        {
+            let temp = tHeight / CGFloat(7.25)
+            return temp
+        }
+        
     }
     
     

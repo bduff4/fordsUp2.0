@@ -33,6 +33,7 @@ var test = 0
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    var totalNum = 0
     var myDecks: [Deck] = []
     @IBOutlet weak var startButton: UIButton!
     var removeCount = 0
@@ -88,8 +89,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             internetCheck = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.waitForInternet)), userInfo: nil, repeats: true)
         }
         
+//        let testingStuff = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(ViewController.testingStuff)), userInfo: nil, repeats: true)
+        
+        
     }
-
+//    @objc func testingStuff()
+//    {
+//        print("\(chatham.count + chestnutwold.count + coopertown.count + lynnewood.count + manoa.count + ms.count + hs.count)")
+//    }
+    
+    
     override func viewDidAppear(_ animated: Bool)
     {
         if connected == false
@@ -109,6 +118,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         }
     }
+    
+    
+    
+    
+    
+    
     
     ////////////////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
