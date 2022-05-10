@@ -137,7 +137,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.textLabel?.text = currentDeck.name
         cell.detailTextLabel?.text = currentDeck.description
-        cell.imageView?.image = UIImage(named: currentDeck.imageName!)
+        cell.imageView?.image = UIImage(named: currentDeck.imageName ?? "hs")
         cell.imageView?.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         
         
@@ -162,7 +162,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         currentCat.removeAll()
         currentCat.append(contentsOf: array)
-        print(array.first!)
+        print(array.first ?? "error")
         
         //print(array)
     }
@@ -171,7 +171,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
 
             array.removeSubrange(0...remove)
-        print(array.first!)
+        print(array.first ?? "error")
     }
     
     
@@ -284,8 +284,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let task = URLSession.shared.dataTask(with: url)
             { [self] (data, response, error) in
                         //what
-                 guard let data = data else { return }
-                 let result = String(data: data, encoding: .utf8)!
+                 guard let data = data, let result = String(data: data, encoding: .utf8) else { return }
+//                 let result = String(data: data, encoding: .utf8)!
                 
                 do {
                     let doc = try SwiftSoup.parse(result)

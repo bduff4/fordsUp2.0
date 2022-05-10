@@ -84,7 +84,7 @@ class SecondViewController: UIViewController
         
         for j in 0..<currentCat.count
         {
-            currentCat[j] = currentCat[j].components(separatedBy: " ").last!
+            currentCat[j] = currentCat[j].components(separatedBy: " ").last ?? "Donaghy"
             
             if currentCat[j].contains("\'") || currentCat[j].contains("\\'")
             {
@@ -128,7 +128,7 @@ class SecondViewController: UIViewController
     @objc func countdown()
     {
         count -= 1
-        timerLabel.text! = "\(count)"
+        timerLabel.text = "\(count)"
         print(count)
     
         
@@ -149,13 +149,25 @@ class SecondViewController: UIViewController
     
     //start at 60, end at 140
     @objc func updateLabel() {
-        print(timerLabel.text!)
-        if timerLabel.text! == "0"
+        print(timerLabel.text ?? "UpdateLabel")
+        if timerLabel.text == "0"
     {
     print("should end")
             endStuff()
      }
-        let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
+        
+        
+        guard let deviceMotion = motion.deviceMotion else {
+            
+           
+            print("this was an optional")
+            return
+        }
+        let roll = (((deviceMotion.attitude.roll)) * 180 / .pi)
+        
+        
+        
+        
         //let roll = 25
         
         //let r: String = String(format: "%.2f", roll) //in case of debugging
@@ -245,9 +257,21 @@ class SecondViewController: UIViewController
         self.timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: (#selector(SecondViewController.updateLabel)), userInfo: nil, repeats: true)
     }
     
+    var printCount = 0
+    
     @objc func check()
     {
-       let roll = (((motion.deviceMotion?.attitude.roll)!) * 180 / .pi)
+        guard let deviceMotion = motion.deviceMotion else {
+            
+            printCount += 1
+            if printCount == 1
+            {
+            print("this was an optional")
+            }
+            
+            return
+        }
+        let roll = (((deviceMotion.attitude.roll)) * 180 / .pi)
        //let roll = 76
         
         
@@ -273,32 +297,6 @@ class SecondViewController: UIViewController
 
   func endStuff()
     {
-        /*
-        corrArr.append("one")
-        wrongArr.append("two")
-        corrArr.append("three")
-        wrongArr.append("four")
-        corrArr.append("five")
-        corrArr.append("six")
-        wrongArr.append("seven")
-        corrArr.append("eight")
-        wrongArr.append("nine")
-        corrArr.append("ten")
-      
-        
-        guessArr.append("one")
-        guessArr.append("two")
-        guessArr.append("three")
-        guessArr.append("four")
-        guessArr.append("five")
-        guessArr.append("six")
-        guessArr.append("seven")
-        guessArr.append("eight")
-        guessArr.append("nine")
-        guessArr.append("ten")
-        */
-        
-        
         self.timer?.invalidate()
         self.timer3?.invalidate() //countdown
         
